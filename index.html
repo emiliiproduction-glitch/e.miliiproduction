@@ -3,29 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>人米犬頁製作｜舞蹈藝術家履歷</title>
+  <title>人米犬頁製作｜Pudgala Body & Sound Production</title>
   <style>
     :root {
-      --ink: #171717;
-      --paper: #f4f0e8;
-      --paper-2: #e8e1d4;
-      --moss: #536b55;
-      --copper: #a6532f;
-      --blue: #254763;
-      --muted: #6e6a62;
-      --line: rgba(23, 23, 23, 0.16);
-      --shadow: 0 24px 80px rgba(23, 23, 23, 0.18);
-      --radius: 8px;
+      --ink: #0d0d0d;
+      --paper: #f2eee6;
+      --soft: #e5ded1;
+      --moss: #526955;
+      --copper: #9e4d2e;
+      --muted: #67625a;
+      --line: rgba(13, 13, 13, 0.17);
+      --white-line: rgba(255, 255, 255, 0.2);
+      --radius: 6px;
     }
 
     * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       background: var(--paper);
       color: var(--ink);
       font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
-      line-height: 1.65;
+      line-height: 1.55;
     }
 
     img {
@@ -37,61 +38,84 @@
 
     a { color: inherit; text-decoration: none; }
 
-    .page {
+    .site-shell {
       min-height: 100vh;
-      overflow: hidden;
       background:
-        linear-gradient(90deg, rgba(23, 23, 23, 0.04) 1px, transparent 1px) 0 0 / 68px 68px,
-        linear-gradient(180deg, rgba(23, 23, 23, 0.04) 1px, transparent 1px) 0 0 / 68px 68px,
+        linear-gradient(90deg, rgba(13, 13, 13, 0.035) 1px, transparent 1px) 0 0 / 72px 72px,
         var(--paper);
     }
 
-    .nav {
+    .topbar {
       position: fixed;
       inset: 0 0 auto 0;
       z-index: 20;
-      display: flex;
+      display: grid;
+      grid-template-columns: 220px 1fr auto;
+      gap: 22px;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 18px clamp(18px, 4vw, 48px);
+      padding: 18px clamp(18px, 4vw, 46px);
       color: #fff;
       mix-blend-mode: difference;
-      pointer-events: none;
     }
 
-    .nav strong {
-      font-size: 14px;
-      font-weight: 700;
+    .brand {
+      display: grid;
+      gap: 2px;
+      font-weight: 900;
+      line-height: 1.1;
     }
 
-    .nav span {
+    .brand span {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: clamp(12px, 2vw, 28px);
       font-size: 12px;
-      color: rgba(255, 255, 255, 0.78);
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .nav a { opacity: 0.78; }
+    .nav a:hover { opacity: 1; }
+
+    .lang {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .admin-link {
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 999px;
+      padding: 7px 10px;
     }
 
     .hero {
-      min-height: 92vh;
+      min-height: 100vh;
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+      grid-template-columns: 1.08fr 0.92fr;
       background: var(--ink);
       color: #fff;
     }
 
-    .hero-media {
+    .hero-visual {
       position: relative;
-      min-height: 520px;
-      isolation: isolate;
+      min-height: 620px;
     }
 
-    .hero-media::after {
+    .hero-visual::after {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(90deg, rgba(23, 23, 23, 0.12), rgba(23, 23, 23, 0.78)),
-        linear-gradient(0deg, rgba(23, 23, 23, 0.42), transparent 42%);
-      z-index: 1;
+      background: linear-gradient(90deg, transparent 38%, rgba(13, 13, 13, 0.78));
     }
 
     .hero-copy {
@@ -99,29 +123,31 @@
       flex-direction: column;
       justify-content: flex-end;
       gap: 28px;
-      min-height: 620px;
-      padding: 96px clamp(28px, 5vw, 72px) 72px clamp(28px, 5vw, 72px);
-      position: relative;
+      padding: 110px clamp(28px, 5vw, 72px) 78px;
     }
 
     .kicker {
-      color: #d9cbb6;
-      font-size: 13px;
-      font-weight: 700;
+      color: #d7c8b1;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
     }
 
+    h1, h2, h3, p { margin-top: 0; }
+
     h1 {
-      margin: 0;
-      font-size: clamp(48px, 7vw, 96px);
-      line-height: 0.98;
-      font-weight: 800;
-      max-width: 820px;
+      margin-bottom: 0;
+      max-width: 760px;
+      font-size: clamp(50px, 7vw, 104px);
+      line-height: 0.96;
+      font-weight: 950;
+      letter-spacing: 0;
     }
 
     .hero-copy p {
-      margin: 0;
-      max-width: 680px;
-      color: rgba(255, 255, 255, 0.82);
+      max-width: 640px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.76);
       font-size: clamp(16px, 1.55vw, 20px);
     }
 
@@ -129,242 +155,318 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.18);
       max-width: 720px;
+      background: var(--white-line);
+      border: 1px solid var(--white-line);
     }
 
     .hero-meta div {
-      padding: 16px;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(18px);
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.075);
     }
 
     .hero-meta b {
       display: block;
-      font-size: 12px;
-      color: #d9cbb6;
       margin-bottom: 4px;
+      color: #d7c8b1;
+      font-size: 11px;
     }
 
     .hero-meta span {
       display: block;
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.88);
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 13px;
     }
 
     .section {
-      padding: clamp(56px, 8vw, 104px) clamp(18px, 4vw, 48px);
+      padding: clamp(56px, 8vw, 110px) clamp(18px, 4vw, 48px);
     }
 
     .wrap {
-      width: min(1180px, 100%);
+      width: min(1200px, 100%);
       margin: 0 auto;
     }
 
     .section-head {
       display: grid;
-      grid-template-columns: 0.7fr 1.3fr;
-      gap: clamp(28px, 5vw, 72px);
+      grid-template-columns: 0.62fr 1.38fr;
+      gap: clamp(24px, 5vw, 74px);
       align-items: end;
-      margin-bottom: 36px;
+      margin-bottom: 34px;
     }
 
     .eyebrow {
-      margin: 0 0 8px;
+      margin-bottom: 8px;
       color: var(--copper);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 950;
+      text-transform: uppercase;
     }
 
     h2 {
-      margin: 0;
-      font-size: clamp(30px, 4vw, 56px);
-      line-height: 1.08;
+      margin-bottom: 0;
+      font-size: clamp(32px, 4.7vw, 64px);
+      line-height: 1.02;
+      font-weight: 950;
     }
 
     .lead {
-      margin: 0;
+      margin-bottom: 0;
       color: var(--muted);
-      font-size: clamp(16px, 1.6vw, 19px);
+      font-size: clamp(16px, 1.65vw, 20px);
     }
 
-    .profile {
+    .news {
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: clamp(24px, 4vw, 56px);
-      align-items: stretch;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
     }
 
-    .portrait-stack {
+    .news-card {
+      min-height: 270px;
+      padding: clamp(22px, 4vw, 42px);
+      background: var(--paper);
+    }
+
+    .news-card.dark {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .news-card h3 {
+      margin-bottom: 18px;
+      font-size: clamp(24px, 3vw, 38px);
+      line-height: 1.08;
+    }
+
+    .news-card p {
+      color: inherit;
+      opacity: 0.76;
+      font-size: 17px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .button {
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .calendar {
+      background: var(--soft);
+    }
+
+    .calendar-list {
       display: grid;
-      grid-template-columns: 0.8fr 1fr;
-      gap: 14px;
-      min-height: 540px;
+      border-top: 1px solid var(--line);
     }
 
-    .portrait-stack figure {
+    .calendar-row {
+      display: grid;
+      grid-template-columns: 96px 1fr 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .calendar-row b {
+      color: var(--moss);
+      font-size: 13px;
+    }
+
+    .calendar-title {
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .calendar-place {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .productions {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .productions .lead { color: rgba(255, 255, 255, 0.66); }
+
+    .production-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--white-line);
+      border: 1px solid var(--white-line);
+    }
+
+    .production-card {
+      min-height: 430px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      background: #141414;
+    }
+
+    .production-image {
+      min-height: 310px;
+      overflow: hidden;
+      background: #222;
+    }
+
+    .production-card h3 {
+      min-height: 108px;
+      display: flex;
+      align-items: flex-end;
+      margin: 0;
+      padding: 18px;
+      font-size: 22px;
+      line-height: 1.14;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(26px, 5vw, 72px);
+      align-items: start;
+    }
+
+    .about-images {
+      display: grid;
+      grid-template-columns: 0.85fr 1fr;
+      gap: 12px;
+      min-height: 520px;
+    }
+
+    .about-images figure {
       margin: 0;
       overflow: hidden;
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      background: var(--ink);
+      background: #222;
     }
 
-    .portrait-stack figure:first-child { transform: translateY(30px); }
+    .about-images figure:first-child { transform: translateY(28px); }
 
-    .copy-block {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .about-copy {
+      padding-top: 18px;
       border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 34px 0;
     }
 
-    .copy-block p {
-      margin: 0 0 18px;
+    .about-copy p {
       font-size: 18px;
-      color: #25231f;
+      color: #24211d;
     }
 
     .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 20px;
     }
 
     .chip {
       border: 1px solid var(--line);
       border-radius: 999px;
       padding: 7px 11px;
-      background: rgba(255, 255, 255, 0.34);
+      background: rgba(255, 255, 255, 0.35);
       font-size: 13px;
-      color: #34322e;
     }
 
-    .works {
-      background: #161616;
-      color: #f8f2e8;
-    }
-
-    .works .lead { color: rgba(248, 242, 232, 0.68); }
-
-    .timeline {
+    .programs {
       display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: rgba(248, 242, 232, 0.14);
-      border: 1px solid rgba(248, 242, 232, 0.14);
+      background: var(--line);
+      border: 1px solid var(--line);
     }
 
-    .work-row {
-      display: grid;
-      grid-template-columns: 96px 1fr minmax(230px, 0.9fr);
-      gap: 24px;
-      align-items: baseline;
-      padding: 18px 20px;
-      background: #161616;
+    .program {
+      min-height: 250px;
+      padding: 24px;
+      background: var(--paper);
     }
 
-    .year {
-      color: #d9cbb6;
-      font-weight: 800;
+    .program b {
+      display: block;
+      margin-bottom: 26px;
+      color: var(--moss);
+      font-size: 13px;
     }
 
-    .work-title {
-      font-size: 19px;
-      font-weight: 800;
+    .program h3 {
+      margin-bottom: 12px;
+      font-size: 24px;
+      line-height: 1.14;
     }
 
-    .work-note {
-      color: rgba(248, 242, 232, 0.64);
-      font-size: 14px;
+    .program p {
+      color: var(--muted);
+      font-size: 15px;
     }
 
     .gallery {
-      padding-top: 0;
-      background: var(--paper-2);
+      background: var(--soft);
     }
 
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: 96px;
-      gap: 12px;
+      grid-auto-rows: 92px;
+      gap: 10px;
     }
 
     .photo {
       position: relative;
+      margin: 0;
       overflow: hidden;
       border-radius: var(--radius);
-      background: #111;
-      box-shadow: 0 12px 34px rgba(23, 23, 23, 0.16);
+      background: #222;
     }
 
     .photo::after {
       content: attr(data-caption);
       position: absolute;
       inset: auto 0 0 0;
-      padding: 24px 14px 12px;
+      padding: 30px 12px 12px;
       color: #fff;
       font-size: 12px;
-      font-weight: 700;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.68), transparent);
+      font-weight: 900;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.74), transparent);
       opacity: 0;
-      transition: opacity 180ms ease;
+      transition: opacity 160ms ease;
     }
 
     .photo:hover::after { opacity: 1; }
 
+    .span-8 { grid-column: span 8; grid-row: span 4; }
     .span-6 { grid-column: span 6; grid-row: span 4; }
     .span-4 { grid-column: span 4; grid-row: span 3; }
     .span-3 { grid-column: span 3; grid-row: span 3; }
-    .span-8 { grid-column: span 8; grid-row: span 4; }
 
-    .practice {
+    .contact {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .contact-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: 1fr 310px;
+      gap: clamp(26px, 5vw, 72px);
+      align-items: end;
     }
 
-    .practice-item {
-      min-height: 220px;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.36);
-    }
-
-    .practice-item b {
-      display: block;
-      margin-bottom: 18px;
-      color: var(--moss);
-      font-size: 13px;
-    }
-
-    .practice-item h3 {
-      margin: 0 0 10px;
-      font-size: 22px;
-      line-height: 1.18;
-    }
-
-    .practice-item p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .closing {
-      display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 28px;
-      align-items: center;
-      border-top: 1px solid var(--line);
-      padding-top: 36px;
-    }
-
-    .closing h2 { max-width: 760px; }
+    .contact h2 { max-width: 800px; }
+    .contact .lead { margin-top: 18px; color: rgba(255, 255, 255, 0.68); }
 
     .qr {
       display: grid;
@@ -374,22 +476,20 @@
 
     .qr figure {
       margin: 0;
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: #fff;
       padding: 12px;
-      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
     }
 
     .print-button {
       position: fixed;
       right: 18px;
       bottom: 18px;
-      z-index: 30;
+      z-index: 25;
       border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 999px;
       padding: 11px 15px;
-      background: rgba(23, 23, 23, 0.78);
+      background: rgba(13, 13, 13, 0.78);
       color: #fff;
       font: inherit;
       font-size: 13px;
@@ -397,211 +497,170 @@
       backdrop-filter: blur(16px);
     }
 
-    .admin-link {
-      position: fixed;
-      right: 18px;
-      bottom: 72px;
-      z-index: 30;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 999px;
-      padding: 11px 15px;
-      background: rgba(83, 107, 85, 0.86);
-      color: #fff;
-      font: inherit;
-      font-size: 13px;
-      cursor: pointer;
-      backdrop-filter: blur(16px);
-    }
+    @media (max-width: 900px) {
+      .topbar {
+        position: absolute;
+        grid-template-columns: 1fr auto;
+      }
 
-    @media (max-width: 860px) {
-      .nav { position: absolute; }
+      .nav {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+      }
+
       .hero,
-      .profile,
+      .news,
+      .about-grid,
       .section-head,
-      .closing {
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-media { min-height: 46vh; }
-      .hero-copy {
-        min-height: auto;
-        padding-top: 40px;
-      }
-
+      .hero-visual { min-height: 48vh; }
+      .hero-copy { padding-top: 36px; }
       .hero-meta { grid-template-columns: 1fr; }
-      .portrait-stack {
-        min-height: 360px;
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .work-row {
-        grid-template-columns: 68px 1fr;
-      }
-
-      .work-note { grid-column: 2; }
-      .practice { grid-template-columns: 1fr; }
-      .photo-grid { grid-auto-rows: 72px; gap: 8px; }
+      .calendar-row { grid-template-columns: 78px 1fr; }
+      .calendar-place, .calendar-row .button { grid-column: 2; }
+      .production-grid, .programs { grid-template-columns: 1fr; }
+      .about-images { min-height: 360px; }
+      .photo-grid { grid-auto-rows: 72px; }
       .span-8, .span-6, .span-4, .span-3 { grid-column: span 12; grid-row: span 4; }
-      .qr { max-width: 280px; }
+      .qr { max-width: 300px; }
     }
 
     @media print {
-      body { background: #fff; color: #000; }
-      .page { background: #fff; }
-      .nav, .print-button, .admin-link { display: none; }
-      .hero { min-height: auto; grid-template-columns: 1fr; color: #000; background: #fff; }
-      .hero-media { height: 4.8in; min-height: 0; }
-      .hero-media::after { display: none; }
-      .hero-copy { min-height: auto; padding: 0.35in 0 0; }
-      .hero-copy p, .hero-meta span, .works .lead { color: #000; }
-      .hero-meta { border-color: #bbb; background: #fff; }
-      .hero-meta div { background: #fff; }
-      .section { padding: 0.45in 0; break-inside: avoid; }
+      .topbar, .print-button, .admin-link { display: none; }
+      .hero, .productions, .contact { background: #fff; color: #000; }
+      .section { padding: 0.4in 0; }
       .wrap { width: 7in; }
-      .works { background: #fff; color: #000; }
-      .timeline { border-color: #bbb; background: #bbb; }
-      .work-row { background: #fff; }
-      .work-note, .lead, .copy-block p, .practice-item p { color: #333; }
-      .photo-grid { grid-auto-rows: 0.72in; }
-      .practice-item { background: #fff; }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <a class="admin-link" href="admin.html">編輯後台</a>
+  <main class="site-shell">
     <button class="print-button" onclick="window.print()">列印 / 另存 PDF</button>
 
-    <header class="nav" aria-label="頁首">
-      <strong data-field="site.brand">人米犬頁製作</strong>
-      <span data-field="site.subtitle">Pudgala Body &amp; Sound Production</span>
+    <header class="topbar">
+      <a class="brand" href="#home">
+        <strong data-field="site.brand">人米犬頁製作</strong>
+        <span data-field="site.subtitle">Pudgala Body &amp; Sound Production</span>
+      </a>
+      <nav class="nav" aria-label="主選單">
+        <a href="#home">Home</a>
+        <a href="#productions">Productions</a>
+        <a href="#calendar">Calendar</a>
+        <a href="#workshops">Workshops</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="lang">
+        <span>中文</span>
+        <a class="admin-link" href="admin.html">Admin</a>
+      </div>
     </header>
 
-    <section class="hero">
-      <div class="hero-media">
+    <section class="hero" id="home">
+      <div class="hero-visual">
         <img data-image="hero.image" src="artist_cv_assets/pdf2_p01_01.png" alt="人米犬頁製作主視覺">
       </div>
       <div class="hero-copy">
         <div class="kicker" data-field="hero.kicker">Founder / Artistic Director / Dancer / Choreographer</div>
         <h1 data-html="hero.title">舞蹈藝術家<br>編舞家履歷</h1>
         <p data-field="hero.description">以身體、聲音、即興與儀式結構回應土地、文化和時間；在自然與歷史場域中發展沉浸式的當代表演語彙。</p>
-        <div class="hero-meta" data-render="hero.meta">
-          <div><b>團隊</b><span>人米犬頁製作</span></div>
-          <div><b>成立</b><span>2020 首次亮相｜2024 正式立案</span></div>
-          <div><b>作品集</b><span>https://reurl.cc/R9ex6g</span></div>
-        </div>
+        <div class="hero-meta" data-render="hero.meta"></div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap profile">
-        <div class="portrait-stack" data-render="profile.images">
-          <figure><img src="artist_cv_assets/pdf1_p01_01.jpg" alt="舞蹈演出現場照片"></figure>
-          <figure><img src="artist_cv_assets/pdf2_p12_01.png" alt="人米犬頁製作演出拼貼"></figure>
-        </div>
-        <div class="copy-block" data-render="profile">
-          <p>人米犬頁製作團長與創始人，舞蹈藝術家、編舞家。創作以舞蹈為核心，結合聲音、即興演出與多元藝術形式，持續探索身體語言的可能性。</p>
-          <p>作品多在自然與歷史場域中展開，透過細膩的視覺與肢體編排，將傳統與當代、物質與非物質、時間與空間轉化為可被感知的身體經驗。</p>
-          <div class="chips">
-            <span class="chip">編舞</span>
-            <span class="chip">現地製作</span>
-            <span class="chip">儀式結構</span>
-            <span class="chip">聲響／身體劇場</span>
-            <span class="chip">即興</span>
-            <span class="chip">跨域合作</span>
+    <section class="section" id="news">
+      <div class="wrap news">
+        <article class="news-card dark">
+          <p class="eyebrow">Latest News</p>
+          <h3>人米犬頁製作網站上線</h3>
+          <p>這裡會持續更新演出、工作坊、駐村與新作品消息。若需要投遞或合作，可先使用作品集與後台快速更新資料。</p>
+          <div class="button-row">
+            <a class="button" href="#contact">Contact</a>
+            <a class="button" href="admin.html">Edit site</a>
           </div>
-        </div>
+        </article>
+        <article class="news-card">
+          <p class="eyebrow">Current Focus</p>
+          <h3>從現地製作走向劇場首演</h3>
+          <p data-field="worksIntro">從藝術節、公共藝術、歷史場域到劇場首演，作品持續在不同尺度的空間中建立身體與環境的對話。</p>
+          <div class="button-row">
+            <a class="button" href="#productions">See productions</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="section works">
+    <section class="section calendar" id="calendar">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Selected Works</p>
-            <h2>代表作品與演出紀錄</h2>
+            <p class="eyebrow">Tour Calendar</p>
+            <h2>演出與創作紀錄</h2>
           </div>
-          <p class="lead" data-field="worksIntro">從藝術節、公共藝術、歷史場域到劇場首演，作品持續在不同尺度的空間中建立身體與環境的對話。</p>
+          <p class="lead">以近期與代表性作品作為時間軸，呈現團隊從場域行動、藝術節到劇場製作的發展。</p>
         </div>
-        <div class="timeline" data-render="works">
-          <div class="work-row"><div class="year">2026</div><div class="work-title">《織繩界 Beneath》</div><div class="work-note">人米犬頁製作台北首度劇場舞作</div></div>
-          <div class="work-row"><div class="year">2025</div><div class="work-title">《蛹塚》</div><div class="work-note">受邀白晝之夜《花蟲弄》</div></div>
-          <div class="work-row"><div class="year">2025</div><div class="work-title">《虎刺梅X鹿野神社》</div><div class="work-note">臺東藝穗節「特色節目回放計劃」</div></div>
-          <div class="work-row"><div class="year">2025</div><div class="work-title">鴻梅國際藝術村開幕儀式</div><div class="work-note">受邀現地製作演出</div></div>
-          <div class="work-row"><div class="year">2024</div><div class="work-title">《花蟲弄》／《城市轍跡》／《舞行六識》</div><div class="work-note">臺北藝穗節、全國古蹟日、藝起 Fun 礁溪</div></div>
-          <div class="work-row"><div class="year">2023</div><div class="work-title">《幽嶼時祭》／《舞·藥師儀式肢體聲響劇場》</div><div class="work-note">基隆城市劇場行動、大稻埕本草派對</div></div>
-          <div class="work-row"><div class="year">2020-22</div><div class="work-title">《虎刺梅》系列／《驁鹿》</div><div class="work-note">臺北藝穗節、臺東藝穗節、艋舺國際舞蹈節等</div></div>
+        <div class="calendar-list" data-render="calendar"></div>
+      </div>
+    </section>
+
+    <section class="section productions" id="productions">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Productions</p>
+            <h2>作品</h2>
+          </div>
+          <p class="lead" data-field="galleryIntro">以下照片由你提供的 CV PDF 中抽出，用於建立可快速感知作品氣質的視覺履歷。</p>
         </div>
+        <div class="production-grid" data-render="productions"></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap about-grid">
+        <div class="about-images" data-render="profile.images"></div>
+        <div class="about-copy" data-render="profile"></div>
+      </div>
+    </section>
+
+    <section class="section" id="workshops">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Workshops / Education / Studio</p>
+            <h2>創作方法與合作形式</h2>
+          </div>
+          <p class="lead" data-field="practiceIntro">把履歷從「事件列表」推進到「藝術方法」：讓評審、策展人與合作單位更快理解你真正能帶來什麼。</p>
+        </div>
+        <div class="programs" data-render="practice"></div>
       </div>
     </section>
 
     <section class="section gallery">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Visual Archive</p>
-            <h2>作品照片</h2>
-          </div>
-          <p class="lead" data-field="galleryIntro">以下照片由你提供的 CV PDF 中抽出，用於建立可快速感知作品氣質的視覺履歷。</p>
-        </div>
-        <div class="photo-grid" data-render="gallery">
-          <figure class="photo span-8" data-caption="花蟲弄／劇照拼貼"><img src="artist_cv_assets/pdf2_p02_01.png" alt="花蟲弄劇照拼貼"></figure>
-          <figure class="photo span-4" data-caption="城市轍跡／公共藝術場域"><img src="artist_cv_assets/pdf2_p04_01.png" alt="城市轍跡演出照片"></figure>
-          <figure class="photo span-4" data-caption="舞行六識／礁溪"><img src="artist_cv_assets/pdf2_p05_01.png" alt="舞行六識演出照片"></figure>
-          <figure class="photo span-4" data-caption="聲音與身體"><img src="artist_cv_assets/pdf2_p06_01.png" alt="聲音與身體劇場照片"></figure>
-          <figure class="photo span-4" data-caption="場域與儀式"><img src="artist_cv_assets/pdf2_p07_01.png" alt="場域與儀式演出照片"></figure>
-          <figure class="photo span-6" data-caption="夜間現地製作"><img src="artist_cv_assets/pdf2_p08_01.png" alt="夜間現地演出照片"></figure>
-          <figure class="photo span-3" data-caption="黑白身體研究"><img src="artist_cv_assets/pdf2_p09_01.png" alt="黑白舞蹈照片"></figure>
-          <figure class="photo span-3" data-caption="虎刺梅系列"><img src="artist_cv_assets/pdf2_p10_01.png" alt="虎刺梅系列照片"></figure>
-          <figure class="photo span-6" data-caption="劇場作品片段"><img src="artist_cv_assets/pdf2_p11_01.png" alt="劇場作品拼貼"></figure>
-          <figure class="photo span-6" data-caption="近年作品影像"><img src="artist_cv_assets/pdf2_p03_01.png" alt="近年作品照片"></figure>
-        </div>
+        <div class="photo-grid" data-render="gallery"></div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Practice</p>
-            <h2>創作方法</h2>
-          </div>
-          <p class="lead" data-field="practiceIntro">把履歷從「事件列表」推進到「藝術方法」：讓評審、策展人與合作單位更快理解你真正能帶來什麼。</p>
-        </div>
-        <div class="practice" data-render="practice">
-          <article class="practice-item">
-            <b>01</b>
-            <h3>身體作為場域感知</h3>
-            <p>以身體讀取環境、歷史與文化痕跡，讓演出不只發生在空間中，也與空間共同生成。</p>
-          </article>
-          <article class="practice-item">
-            <b>02</b>
-            <h3>儀式結構的當代轉譯</h3>
-            <p>從傳統與地方知識出發，透過編舞、聲響與秩序建立可被當代觀眾進入的感官形式。</p>
-          </article>
-          <article class="practice-item">
-            <b>03</b>
-            <h3>低資源下的製作韌性</h3>
-            <p>能在小型團隊與有限預算中完成提案、排練、行政協調、演出執行與影像整理。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap closing">
+    <section class="section contact" id="contact">
+      <div class="wrap contact-grid">
         <div>
           <p class="eyebrow">Contact / Portfolio</p>
           <h2 data-field="closing.heading">可合作形式包含劇場作品、現地演出、公共藝術、節慶開幕、工作坊與跨域製作。</h2>
           <p class="lead" data-field="closing.description">個人姓名、email、電話、正式網站與社群帳號可再補入此版，作為正式投遞版本。</p>
+          <div class="button-row">
+            <a class="button" href="mailto:">Email</a>
+            <a class="button" href="admin.html">Backstage</a>
+          </div>
         </div>
-        <div class="qr" data-render="closing.qr">
-          <figure><img src="artist_cv_assets/pdf2_p01_02.png" alt="作品集 QR code"></figure>
-          <figure><img src="artist_cv_assets/pdf2_p01_03.png" alt="社群 QR code"></figure>
-        </div>
+        <div class="qr" data-render="closing.qr"></div>
       </div>
     </section>
   </main>
+
   <script>
     const getValue = (object, path) => path.split(".").reduce((value, key) => value && value[key], object);
     const escapeHtml = (value = "") => String(value)
@@ -612,14 +671,17 @@
 
     function applyContent(data) {
       document.title = data.site?.title || document.title;
+
       document.querySelectorAll("[data-field]").forEach((node) => {
         const value = getValue(data, node.dataset.field);
         if (value !== undefined) node.textContent = value;
       });
+
       document.querySelectorAll("[data-html]").forEach((node) => {
         const value = getValue(data, node.dataset.html);
         if (value !== undefined) node.innerHTML = value;
       });
+
       document.querySelectorAll("[data-image]").forEach((node) => {
         const value = getValue(data, node.dataset.image);
         if (value) node.src = value;
@@ -628,6 +690,32 @@
       const heroMeta = document.querySelector('[data-render="hero.meta"]');
       if (heroMeta && Array.isArray(data.hero?.meta)) {
         heroMeta.innerHTML = data.hero.meta.map((item) => `<div><b>${escapeHtml(item.label)}</b><span>${escapeHtml(item.value)}</span></div>`).join("");
+      }
+
+      const calendar = document.querySelector('[data-render="calendar"]');
+      if (calendar && Array.isArray(data.works)) {
+        calendar.innerHTML = data.works.map((item) => `
+          <div class="calendar-row">
+            <b>${escapeHtml(item.year)}</b>
+            <div class="calendar-title">${escapeHtml(item.title)}</div>
+            <div class="calendar-place">${escapeHtml(item.note)}</div>
+            <a class="button" href="#productions">More info</a>
+          </div>
+        `).join("");
+      }
+
+      const productions = document.querySelector('[data-render="productions"]');
+      if (productions && Array.isArray(data.works)) {
+        const photos = data.gallery || [];
+        productions.innerHTML = data.works.slice(0, 6).map((item, index) => {
+          const photo = photos[index % Math.max(photos.length, 1)] || {};
+          return `
+            <article class="production-card">
+              <div class="production-image"><img src="${escapeHtml(photo.src || data.hero?.image || "")}" alt="${escapeHtml(item.title)}"></div>
+              <h3>${escapeHtml(item.title)}</h3>
+            </article>
+          `;
+        }).join("");
       }
 
       const profileImages = document.querySelector('[data-render="profile.images"]');
@@ -639,17 +727,17 @@
       if (profile && data.profile) {
         const paragraphs = (data.profile.paragraphs || []).map((text) => `<p>${escapeHtml(text)}</p>`).join("");
         const chips = (data.profile.chips || []).map((text) => `<span class="chip">${escapeHtml(text)}</span>`).join("");
-        profile.innerHTML = `${paragraphs}<div class="chips">${chips}</div>`;
+        profile.innerHTML = `<p class="eyebrow">About 人米犬頁製作</p><h2>關於團隊</h2>${paragraphs}<div class="chips">${chips}</div>`;
       }
 
-      const works = document.querySelector('[data-render="works"]');
-      if (works && Array.isArray(data.works)) {
-        works.innerHTML = data.works.map((item) => `
-          <div class="work-row">
-            <div class="year">${escapeHtml(item.year)}</div>
-            <div class="work-title">${escapeHtml(item.title)}</div>
-            <div class="work-note">${escapeHtml(item.note)}</div>
-          </div>
+      const practice = document.querySelector('[data-render="practice"]');
+      if (practice && Array.isArray(data.practice)) {
+        practice.innerHTML = data.practice.map((item) => `
+          <article class="program">
+            <b>${escapeHtml(item.number)}</b>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.description)}</p>
+          </article>
         `).join("");
       }
 
@@ -659,17 +747,6 @@
           <figure class="photo ${escapeHtml(item.span || "span-4")}" data-caption="${escapeHtml(item.caption)}">
             <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt || item.caption || "作品照片")}">
           </figure>
-        `).join("");
-      }
-
-      const practice = document.querySelector('[data-render="practice"]');
-      if (practice && Array.isArray(data.practice)) {
-        practice.innerHTML = data.practice.map((item) => `
-          <article class="practice-item">
-            <b>${escapeHtml(item.number)}</b>
-            <h3>${escapeHtml(item.title)}</h3>
-            <p>${escapeHtml(item.description)}</p>
-          </article>
         `).join("");
       }
 
