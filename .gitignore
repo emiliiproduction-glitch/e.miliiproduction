@@ -1,6 +1,10 @@
 AGENTS.md
 rendered_artist_cv/
 build_artist_cv.py
+drive_collect.py
+drive_collected/
+personal_assets/
+wang-yu-ling.html
 git-askpass-github.sh
 vercel_index_embedded.html
 deploy_embedded_assets/
