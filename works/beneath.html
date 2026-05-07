@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>《織繩界 Beneath》｜人米犬頁製作</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --fg: #f3efe7;
+      --muted: rgba(243,239,231,.64);
+      --line: rgba(243,239,231,.16);
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 58px;
+      padding: 0 clamp(18px,4vw,44px);
+      border-bottom: 1px solid var(--line);
+      background: rgba(5,5,5,.72);
+      backdrop-filter: blur(18px);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+    }
+    .hero img {
+      position: absolute;
+      inset: 0;
+      opacity: .86;
+      filter: grayscale(.12) contrast(1.04);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(5,5,5,.16), rgba(5,5,5,.08) 35%, rgba(5,5,5,.92));
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max),100%);
+      margin: 0 auto;
+      padding: 96px clamp(18px,4vw,44px) 56px;
+    }
+    .kicker {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(54px,10vw,138px);
+      line-height: .92;
+      font-weight: 680;
+    }
+    .intro {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(28px,6vw,86px);
+      width: min(var(--max),100%);
+      margin: 0 auto;
+      padding: clamp(44px,7vw,88px) clamp(18px,4vw,44px);
+      border-bottom: 1px solid var(--line);
+    }
+    .meta {
+      display: grid;
+      gap: 1px;
+      align-self: start;
+      border: 1px solid var(--line);
+    }
+    .meta div {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 14px;
+      padding: 13px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      font-size: 14px;
+    }
+    .meta div:last-child { border-bottom: 0; }
+    .meta b { color: var(--muted); }
+    .copy p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: clamp(17px,2vw,23px);
+    }
+    h2 {
+      margin: 0 0 28px;
+      font-size: clamp(32px,5vw,72px);
+      line-height: 1;
+      font-weight: 620;
+    }
+    .media {
+      width: min(var(--max),100%);
+      margin: 0 auto;
+      padding: clamp(42px,7vw,88px) clamp(18px,4vw,44px);
+      border-bottom: 1px solid var(--line);
+    }
+    .video-box {
+      aspect-ratio: 16 / 9;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      text-align: center;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(12,1fr);
+      grid-auto-rows: 92px;
+      gap: 10px;
+      width: min(var(--max),100%);
+      margin: 0 auto;
+      padding: clamp(42px,7vw,88px) clamp(18px,4vw,44px);
+    }
+    figure { margin: 0; overflow: hidden; background: #111; }
+    .wide { grid-column: span 7; grid-row: span 4; }
+    .tall { grid-column: span 5; grid-row: span 5; }
+    .half { grid-column: span 6; grid-row: span 4; }
+    @media (max-width: 900px) {
+      .intro { grid-template-columns: 1fr; }
+      .wide,.tall,.half { grid-column: span 12; grid-row: span 4; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="../index.html">人米犬頁製作</a>
+    <a href="../index.html#productions">Back to productions</a>
+  </nav>
+
+  <section class="hero">
+    <img src="../artist_cv_assets/drive_stage/stage_02.jpg" alt="《織繩界 Beneath》劇照">
+    <div class="hero-inner">
+      <p class="kicker">Production / 2026</p>
+      <h1>《織繩界<br>Beneath》</h1>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="meta">
+      <div><b>團隊</b><span>人米犬頁製作</span></div>
+      <div><b>形式</b><span>劇場舞作／聲音／身體／儀式結構</span></div>
+      <div><b>狀態</b><span>台北首度劇場舞作</span></div>
+      <div><b>劇照</b><span>此頁照片皆為《織繩界 Beneath》資料</span></div>
+    </div>
+    <div class="copy">
+      <h2>作品介紹</h2>
+      <p>《織繩界 Beneath》以繩、身體、聲音與空間作為感知的入口，讓觀看者進入一個介於地表與內裡、現實與儀式之間的界面。</p>
+      <p>作品延續人米犬頁製作對場域、傳統與當代轉譯的關注，透過身體的牽引、纏繞、支撐與鬆動，探索時間如何在舞台上被看見。</p>
+    </div>
+  </section>
+
+  <section class="media">
+    <h2>精華影片</h2>
+    <div class="video-box">
+      <p>尚未放入影片連結。之後可嵌入 YouTube / Vimeo / IG Reels 精華。</p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <figure class="wide"><img src="../artist_cv_assets/drive_stage/stage_02.jpg" alt="《織繩界 Beneath》劇照"></figure>
+    <figure class="tall"><img src="../artist_cv_assets/drive_stage/stage_04.jpg" alt="《織繩界 Beneath》劇照"></figure>
+    <figure class="tall"><img src="../artist_cv_assets/drive_stage/stage_06.jpg" alt="《織繩界 Beneath》劇照"></figure>
+    <figure class="wide"><img src="../artist_cv_assets/drive_stage/stage_07.jpg" alt="《織繩界 Beneath》劇照"></figure>
+    <figure class="half"><img src="../artist_cv_assets/drive_stage/stage_08.jpg" alt="《織繩界 Beneath》劇照"></figure>
+    <figure class="half"><img src="../artist_cv_assets/drive_stage/stage_10.jpg" alt="《織繩界 Beneath》劇照"></figure>
+  </section>
+</body>
+</html>

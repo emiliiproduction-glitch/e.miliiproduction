@@ -529,6 +529,12 @@
       background: #f3efe7;
     }
 
+
+    body, h1, h2, h3, p, span, b, a, div { color: inherit; }
+    main, .section, .section-body, .news-card, .program, .archive-row, .calendar-row { color: var(--paper); }
+    .news-card p, .program p, .calendar-place, .archive-row, .featured-production p, .lead { color: var(--muted); }
+    .archive-row b, .calendar-row b, .section-title-small, .program b, .production-meta { color: rgba(243,239,231,.9); }
+
     @media (max-width: 900px) {
       .topbar { grid-template-columns: 1fr auto; }
       .nav { grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--light-line); }
@@ -601,7 +607,7 @@
           <article class="news-card">
             <h3>《織繩界 Beneath》劇照整理</h3>
             <p>首頁與作品照片使用你提供的 Drive 分類劇照；這批照片統一標註為《織繩界 Beneath》，不再錯配其他作品名稱。</p>
-            <div class="button-row"><a class="button" href="#images">View images</a></div>
+            <div class="button-row"><a class="button" href="works/beneath.html">作品頁</a><a class="button" href="#images">View images</a></div>
           </article>
           <article class="news-card">
             <h3>作品資料持續更新</h3>
@@ -720,7 +726,7 @@
             <h3>${escapeHtml(work.title || "《織繩界 Beneath》")}</h3>
             <p class="production-meta">團隊製作／編舞：人米犬頁製作</p>
             <p>${escapeHtml(work.note || "人米犬頁製作台北首度劇場舞作")}</p>
-            <div class="button-row"><a class="button" href="#images">Images</a>${work.link ? `<a class="button" href="${escapeHtml(work.link)}" target="_blank" rel="noreferrer">Video</a>` : ""}</div>
+            <div class="button-row">${work.page ? `<a class="button" href="${escapeHtml(work.page)}">作品頁</a>` : ""}<a class="button" href="#images">Images</a>${work.link ? `<a class="button" href="${escapeHtml(work.link)}" target="_blank" rel="noreferrer">Video</a>` : ""}</div>
           </div>
         `;
       }
@@ -728,7 +734,7 @@
       const archive = document.querySelector('[data-render="archive"]');
       if (archive) {
         archive.innerHTML = (data.works || []).slice(1).map((item) => `
-          <div class="archive-row"><b>${escapeHtml(item.year)}</b><span>${escapeHtml(item.title)}｜${escapeHtml(item.note)}${item.link ? `｜<a href="${escapeHtml(item.link)}" target="_blank" rel="noreferrer">Video</a>` : ""}</span></div>
+          <div class="archive-row"><b>${escapeHtml(item.year)}</b><span>${item.page ? `<a href="${escapeHtml(item.page)}">${escapeHtml(item.title)}</a>` : escapeHtml(item.title)}｜${escapeHtml(item.note)}${item.link ? `｜<a href="${escapeHtml(item.link)}" target="_blank" rel="noreferrer">Video</a>` : ""}</span></div>
         `).join("");
       }
 
