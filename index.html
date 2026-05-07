@@ -177,6 +177,25 @@
     .facts div:last-child { border-bottom: 0; }
     .facts b { color: #d9b79b; font-weight: 650; }
 
+    .motto {
+      display: grid;
+      place-items: center;
+      min-height: 28vh;
+      padding: clamp(38px, 7vw, 82px) clamp(18px, 4vw, 54px);
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+      text-align: center;
+    }
+
+    .motto p {
+      max-width: 920px;
+      margin: 0;
+      color: var(--clay);
+      font-size: clamp(28px, 4.5vw, 68px);
+      line-height: 1.08;
+      font-weight: 560;
+    }
+
     .section {
       display: grid;
       grid-template-columns: 220px 1fr;
@@ -255,6 +274,15 @@
 
     .news-card:last-child p { color: rgba(243, 239, 231, 0.72); }
 
+    .section-title-small {
+      margin: 0 0 12px;
+      color: var(--clay);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     .button-row {
       display: flex;
       flex-wrap: wrap;
@@ -330,6 +358,13 @@
       max-width: 620px;
       color: var(--muted);
       font-size: 17px;
+    }
+
+    .production-meta {
+      margin: 0 0 16px;
+      color: var(--clay);
+      font-size: 13px;
+      font-weight: 700;
     }
 
     .archive-list {
@@ -546,9 +581,14 @@
       </div>
     </section>
 
+    <section class="motto">
+      <p>舞蹈是讓不可見之物，短暫現身的方法。</p>
+    </section>
+
     <section class="section" id="news">
       <aside class="section-label"><p>Latest News</p></aside>
       <div class="section-body">
+        <p class="section-title-small">NEWS / 焦點訊息</p>
         <h2>近期</h2>
         <div class="news-grid">
           <article class="news-card">
@@ -568,6 +608,7 @@
     <section class="section" id="calendar">
       <aside class="section-label"><p>Calendar</p></aside>
       <div class="section-body">
+        <p class="section-title-small">TOUR / 演出紀錄</p>
         <h2>演出與作品紀錄</h2>
         <div class="calendar-list" data-render="calendar"></div>
       </div>
@@ -576,6 +617,7 @@
     <section class="section" id="productions">
       <aside class="section-label"><p>Productions</p></aside>
       <div class="section-body">
+        <p class="section-title-small">PRODUCTIONS / 舞作介紹</p>
         <h2>作品</h2>
         <article class="featured-production" data-render="featured.production"></article>
         <div class="archive-list" data-render="archive"></div>
@@ -666,8 +708,9 @@
           <figure><img src="${escapeHtml(image)}" alt="${escapeHtml(work.title || "織繩界 Beneath")}"></figure>
           <div>
             <h3>${escapeHtml(work.title || "《織繩界 Beneath》")}</h3>
+            <p class="production-meta">團隊製作／編舞：人米犬頁製作</p>
             <p>${escapeHtml(work.note || "人米犬頁製作台北首度劇場舞作")}</p>
-            <div class="button-row"><a class="button" href="#images">Images</a></div>
+            <div class="button-row"><a class="button" href="#images">Images</a>${work.link ? `<a class="button" href="${escapeHtml(work.link)}" target="_blank" rel="noreferrer">Video</a>` : ""}</div>
           </div>
         `;
       }
@@ -675,7 +718,7 @@
       const archive = document.querySelector('[data-render="archive"]');
       if (archive) {
         archive.innerHTML = (data.works || []).slice(1).map((item) => `
-          <div class="archive-row"><b>${escapeHtml(item.year)}</b><span>${escapeHtml(item.title)}｜${escapeHtml(item.note)}</span></div>
+          <div class="archive-row"><b>${escapeHtml(item.year)}</b><span>${escapeHtml(item.title)}｜${escapeHtml(item.note)}${item.link ? `｜<a href="${escapeHtml(item.link)}" target="_blank" rel="noreferrer">Video</a>` : ""}</span></div>
         `).join("");
       }
 
