@@ -686,7 +686,10 @@
 
       const heroMeta = document.querySelector('[data-render="hero.meta"]');
       if (heroMeta) {
-        heroMeta.innerHTML = (data.hero?.meta || []).map((item) => `<div><b>${escapeHtml(item.label)}</b><span>${escapeHtml(item.value)}</span></div>`).join("");
+        heroMeta.innerHTML = (data.hero?.meta || []).map((item) => {
+          const value = item.href ? `<a href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer">${escapeHtml(item.value)}</a>` : escapeHtml(item.value);
+          return `<div><b>${escapeHtml(item.label)}</b><span>${value}</span></div>`;
+        }).join("");
       }
 
       const calendar = document.querySelector('[data-render="calendar"]');
@@ -756,6 +759,9 @@
 
       const qr = document.querySelector('[data-render="closing.qr"]');
       if (qr) {
+        const instagram = data.links?.instagram ? `<a class="button" href="${escapeHtml(data.links.instagram)}" target="_blank" rel="noreferrer">Instagram</a>` : "";
+        const buttons = document.querySelector(".contact .button-row");
+        if (buttons && instagram && !buttons.querySelector('[href*="instagram.com"]')) buttons.insertAdjacentHTML("afterbegin", instagram);
         qr.innerHTML = (data.closing?.qr || []).map((src) => `<figure><img src="${escapeHtml(src)}" alt="QR code"></figure>`).join("");
       }
     }

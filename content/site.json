@@ -20,7 +20,8 @@
       },
       {
         "label": "Instagram",
-        "value": "請於後台填入團隊 IG 連結"
+        "value": "https://www.instagram.com/e.milii____f?igsh=MTB3dXF5dGdzY2YzcA%3D%3D",
+        "href": "https://www.instagram.com/e.milii____f?igsh=MTB3dXF5dGdzY2YzcA%3D%3D"
       }
     ]
   },
@@ -163,5 +164,8 @@
       "artist_cv_assets/pdf2_p01_02.png",
       "artist_cv_assets/pdf2_p01_03.png"
     ]
+  },
+  "links": {
+    "instagram": "https://www.instagram.com/e.milii____f?igsh=MTB3dXF5dGdzY2YzcA%3D%3D"
   }
 }
