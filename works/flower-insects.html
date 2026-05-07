@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>《花蟲弄》／《蛹塚》｜人米犬頁製作</title>
+  <style>
+    :root { --bg:#030303; --fg:#f4f1ea; --muted:rgba(244,241,234,.66); --line:rgba(244,241,234,.16); --max:1180px; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--fg); font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif; line-height:1.7; }
+    a { color:inherit; text-decoration:none; }
+    img { display:block; width:100%; height:100%; object-fit:cover; }
+    .nav { position:fixed; inset:0 0 auto; z-index:10; min-height:58px; display:flex; justify-content:space-between; align-items:center; padding:0 clamp(18px,4vw,44px); border-bottom:1px solid var(--line); background:rgba(3,3,3,.76); backdrop-filter:blur(18px); font-size:13px; font-weight:800; }
+    .hero { min-height:92svh; position:relative; display:grid; align-items:end; overflow:hidden; background:#000; }
+    .hero img { position:absolute; inset:0; opacity:.78; filter:grayscale(.05) contrast(1.05); transform:scale(1.04); }
+    .hero:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.2) 42%,rgba(0,0,0,.94)),linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.08)); }
+    .hero-inner { position:relative; z-index:1; width:min(var(--max),100%); margin:0 auto; padding:96px clamp(18px,4vw,44px) 56px; }
+    .kicker,.label { margin:0 0 14px; color:var(--muted); font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    h1 { margin:0; max-width:900px; font-size:clamp(42px,7vw,92px); line-height:.98; font-weight:650; }
+    h2 { margin:0 0 28px; font-size:clamp(30px,4.5vw,58px); line-height:1.04; font-weight:620; }
+    .intro,.timeline,.gallery { width:min(var(--max),100%); margin:0 auto; padding:clamp(44px,7vw,88px) clamp(18px,4vw,44px); border-bottom:1px solid var(--line); }
+    .intro { display:grid; grid-template-columns:.82fr 1.18fr; gap:clamp(28px,6vw,86px); }
+    .meta { display:grid; gap:1px; align-self:start; border:1px solid var(--line); }
+    .meta div { display:grid; grid-template-columns:96px 1fr; gap:14px; padding:13px; background:rgba(255,255,255,.035); border-bottom:1px solid var(--line); font-size:14px; }
+    .meta div:last-child { border-bottom:0; }
+    .meta b,.copy p,.time-row span { color:var(--muted); }
+    .copy p { margin:0 0 18px; font-size:clamp(16px,1.7vw,20px); }
+    .time-row { display:grid; grid-template-columns:110px 1fr; gap:24px; padding:18px 0; border-top:1px solid var(--line); }
+    .time-row:last-child { border-bottom:1px solid var(--line); }
+    .time-row b { font-size:13px; color:var(--fg); }
+    .gallery { display:grid; grid-template-columns:repeat(12,1fr); grid-auto-rows:92px; gap:10px; }
+    figure { margin:0; overflow:hidden; background:#111; }
+    .wide { grid-column:span 8; grid-row:span 5; } .tall { grid-column:span 4; grid-row:span 5; } .half { grid-column:span 6; grid-row:span 4; }
+    @media (max-width:900px){ .intro{grid-template-columns:1fr}.wide,.tall,.half{grid-column:span 12;grid-row:span 4} }
+  </style>
+</head>
+<body>
+  <nav class="nav"><a href="../index.html">人米犬頁製作</a><a href="../index.html#productions">Back to productions</a></nav>
+  <section class="hero"><img src="../artist_cv_assets/pdf2_p02_01.png" alt="《花蟲弄》作品照片"><div class="hero-inner"><p class="kicker">Series / 2024-2025</p><h1>《花蟲弄》／《蛹塚》</h1></div></section>
+  <section class="intro">
+    <div class="meta">
+      <div><b>起點</b><span>2024 臺北藝穗節《花蟲弄》</span></div>
+      <div><b>延伸</b><span>2025 白晝之夜《蛹塚》</span></div>
+      <div><b>形式</b><span>城市夜間、身體、花蟲與蛹的轉化意象</span></div>
+      <div><b>脈絡</b><span>由藝穗作品延展為城市節慶演出</span></div>
+    </div>
+    <div class="copy">
+      <h2>作品脈絡</h2>
+      <p>《花蟲弄》以花、蟲、身體與城市感知作為創作核心，透過舞蹈建立介於日常與異質狀態之間的觀看經驗。</p>
+      <p>2025 年受邀白晝之夜發展《蛹塚》，延續《花蟲弄》的轉化意象，將「蛹」作為城市夜間的身體容器，讓觀眾看見從潛伏、包裹到變形的過程。</p>
+    </div>
+  </section>
+  <section class="timeline">
+    <p class="label">Context</p>
+    <h2>系列時間</h2>
+    <div class="time-row"><b>2024</b><span>《花蟲弄》於臺北藝穗節發展，以花蟲意象與身體變形建立作品原型。</span></div>
+    <div class="time-row"><b>2025</b><span>《蛹塚》受邀白晝之夜，將原有意象推向夜間城市與大型節慶場域。</span></div>
+  </section>
+  <section class="gallery">
+    <figure class="wide"><img src="../artist_cv_assets/pdf2_p02_01.png" alt="《花蟲弄》作品照片"></figure>
+    <figure class="tall"><img src="../artist_cv_assets/pdf2_p03_01.png" alt="《花蟲弄》作品照片"></figure>
+    <figure class="half"><img src="../artist_cv_assets/pdf2_p01_01.png" alt="人米犬頁製作作品資料"></figure>
+    <figure class="half"><img src="../artist_cv_assets/pdf1_p01_02.png" alt="人米犬頁製作作品照片"></figure>
+  </section>
+</body>
+</html>
