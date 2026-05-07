@@ -1,0 +1,66 @@
+{
+  "site": {
+    "title": "人米犬頁製作｜Pudgala Body & Sound Production",
+    "brand": "人米犬頁製作",
+    "subtitle": "Pudgala Body & Sound Production"
+  },
+  "hero": {
+    "kicker": "Founder / Artistic Director / Dancer / Choreographer",
+    "title": "舞蹈藝術家<br>編舞家履歷",
+    "description": "以身體、聲音、即興與儀式結構回應土地、文化和時間；在自然與歷史場域中發展沉浸式的當代表演語彙。",
+    "image": "artist_cv_assets/pdf2_p01_01.png",
+    "meta": [
+      { "label": "團隊", "value": "人米犬頁製作" },
+      { "label": "成立", "value": "2020 首次亮相｜2024 正式立案" },
+      { "label": "作品集", "value": "https://reurl.cc/R9ex6g" }
+    ]
+  },
+  "profile": {
+    "images": [
+      "artist_cv_assets/pdf1_p01_01.jpg",
+      "artist_cv_assets/pdf2_p12_01.png"
+    ],
+    "paragraphs": [
+      "人米犬頁製作團長與創始人，舞蹈藝術家、編舞家。創作以舞蹈為核心，結合聲音、即興演出與多元藝術形式，持續探索身體語言的可能性。",
+      "作品多在自然與歷史場域中展開，透過細膩的視覺與肢體編排，將傳統與當代、物質與非物質、時間與空間轉化為可被感知的身體經驗。"
+    ],
+    "chips": ["編舞", "現地製作", "儀式結構", "聲響／身體劇場", "即興", "跨域合作"]
+  },
+  "worksIntro": "從藝術節、公共藝術、歷史場域到劇場首演，作品持續在不同尺度的空間中建立身體與環境的對話。",
+  "works": [
+    { "year": "2026", "title": "《織繩界 Beneath》", "note": "人米犬頁製作台北首度劇場舞作" },
+    { "year": "2025", "title": "《蛹塚》", "note": "受邀白晝之夜《花蟲弄》" },
+    { "year": "2025", "title": "《虎刺梅X鹿野神社》", "note": "臺東藝穗節「特色節目回放計劃」" },
+    { "year": "2025", "title": "鴻梅國際藝術村開幕儀式", "note": "受邀現地製作演出" },
+    { "year": "2024", "title": "《花蟲弄》／《城市轍跡》／《舞行六識》", "note": "臺北藝穗節、全國古蹟日、藝起 Fun 礁溪" },
+    { "year": "2023", "title": "《幽嶼時祭》／《舞·藥師儀式肢體聲響劇場》", "note": "基隆城市劇場行動、大稻埕本草派對" },
+    { "year": "2020-22", "title": "《虎刺梅》系列／《驁鹿》", "note": "臺北藝穗節、臺東藝穗節、艋舺國際舞蹈節等" }
+  ],
+  "galleryIntro": "以下照片由你提供的 CV PDF 中抽出，用於建立可快速感知作品氣質的視覺履歷。",
+  "gallery": [
+    { "src": "artist_cv_assets/pdf2_p02_01.png", "caption": "花蟲弄／劇照拼貼", "span": "span-8", "alt": "花蟲弄劇照拼貼" },
+    { "src": "artist_cv_assets/pdf2_p04_01.png", "caption": "城市轍跡／公共藝術場域", "span": "span-4", "alt": "城市轍跡演出照片" },
+    { "src": "artist_cv_assets/pdf2_p05_01.png", "caption": "舞行六識／礁溪", "span": "span-4", "alt": "舞行六識演出照片" },
+    { "src": "artist_cv_assets/pdf2_p06_01.png", "caption": "聲音與身體", "span": "span-4", "alt": "聲音與身體劇場照片" },
+    { "src": "artist_cv_assets/pdf2_p07_01.png", "caption": "場域與儀式", "span": "span-4", "alt": "場域與儀式演出照片" },
+    { "src": "artist_cv_assets/pdf2_p08_01.png", "caption": "夜間現地製作", "span": "span-6", "alt": "夜間現地演出照片" },
+    { "src": "artist_cv_assets/pdf2_p09_01.png", "caption": "黑白身體研究", "span": "span-3", "alt": "黑白舞蹈照片" },
+    { "src": "artist_cv_assets/pdf2_p10_01.png", "caption": "虎刺梅系列", "span": "span-3", "alt": "虎刺梅系列照片" },
+    { "src": "artist_cv_assets/pdf2_p11_01.png", "caption": "劇場作品片段", "span": "span-6", "alt": "劇場作品拼貼" },
+    { "src": "artist_cv_assets/pdf2_p03_01.png", "caption": "近年作品影像", "span": "span-6", "alt": "近年作品照片" }
+  ],
+  "practiceIntro": "把履歷從「事件列表」推進到「藝術方法」：讓評審、策展人與合作單位更快理解你真正能帶來什麼。",
+  "practice": [
+    { "number": "01", "title": "身體作為場域感知", "description": "以身體讀取環境、歷史與文化痕跡，讓演出不只發生在空間中，也與空間共同生成。" },
+    { "number": "02", "title": "儀式結構的當代轉譯", "description": "從傳統與地方知識出發，透過編舞、聲響與秩序建立可被當代觀眾進入的感官形式。" },
+    { "number": "03", "title": "低資源下的製作韌性", "description": "能在小型團隊與有限預算中完成提案、排練、行政協調、演出執行與影像整理。" }
+  ],
+  "closing": {
+    "heading": "可合作形式包含劇場作品、現地演出、公共藝術、節慶開幕、工作坊與跨域製作。",
+    "description": "個人姓名、email、電話、正式網站與社群帳號可再補入此版，作為正式投遞版本。",
+    "qr": [
+      "artist_cv_assets/pdf2_p01_02.png",
+      "artist_cv_assets/pdf2_p01_03.png"
+    ]
+  }
+}
