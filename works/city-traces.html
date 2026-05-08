@@ -25,6 +25,8 @@
     .meta div:last-child { border-bottom:0; }
     .meta b,.copy p { color:var(--muted); }
     .copy p { margin:0 0 18px; font-size:clamp(15px,1.55vw,18px); }
+    .button-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+    .button { display:inline-flex; border:1px solid currentColor; border-radius:999px; padding:8px 12px; color:var(--fg); font-size:12px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
     .video { aspect-ratio:16/9; width:100%; border:1px solid var(--line); background:#000; }
     iframe { width:100%; height:100%; border:0; display:block; }
     .gallery { display:grid; grid-template-columns:repeat(12,1fr); grid-auto-rows:92px; gap:10px; }
@@ -50,6 +52,17 @@
     </div>
   </section>
   <section class="media"><p class="label">Highlight</p><h2>精華影片</h2><div class="video"><iframe src="https://www.youtube.com/embed/RHzYZJt1Z8o" title="《城市轍跡》精華影片" allowfullscreen></iframe></div></section>
+  <section class="media">
+    <p class="label">Reviews</p>
+    <h2>評論／書寫</h2>
+    <div class="copy">
+      <p>收錄外部評論與觀看書寫，讓觀眾從作品頁進一步閱讀他人如何理解人米犬頁製作的公共場域、城市路徑與身體編排。</p>
+    </div>
+    <div class="button-row">
+      <a class="button" href="https://talks.taishinart.org.tw/talks/408/40014" target="_blank" rel="noreferrer">台新藝術網評論</a>
+      <a class="button" href="https://pareviews.ncafroc.org.tw/comments/688efc23-4c6f-47e6-8abd-663375d8a8bb" target="_blank" rel="noreferrer">表演藝術評論台</a>
+    </div>
+  </section>
   <section class="gallery">
     <figure class="wide"><img src="../artist_cv_assets/pdf2_p04_01.png" alt="《城市轍跡》劇照"></figure>
     <figure class="tall"><img src="../artist_cv_assets/pdf2_p05_01.png" alt="人米犬頁製作作品資料"></figure>
