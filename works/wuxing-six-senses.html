@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>《藝術 Fun 礁溪－舞行六識》｜人米犬頁製作</title>
+  <style>
+    :root { --bg:#030303; --fg:#f4f1ea; --muted:rgba(244,241,234,.66); --line:rgba(244,241,234,.16); --max:1180px; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--fg); font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif; line-height:1.7; }
+    a { color:inherit; text-decoration:none; }
+    img { display:block; width:100%; height:100%; object-fit:cover; }
+    .nav { position:fixed; inset:0 0 auto; z-index:10; min-height:58px; display:flex; justify-content:space-between; align-items:center; padding:0 clamp(18px,4vw,44px); border-bottom:1px solid var(--line); background:rgba(3,3,3,.76); backdrop-filter:blur(18px); font-size:13px; font-weight:800; }
+    .hero { min-height:92svh; position:relative; display:grid; align-items:end; overflow:hidden; background:#000; }
+    .hero img { position:absolute; inset:0; opacity:.78; filter:grayscale(.06) contrast(1.05); transform:scale(1.04); }
+    .hero:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.22) 42%,rgba(0,0,0,.94)),linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.08)); }
+    .hero-inner,.intro,.media,.gallery { width:min(var(--max),100%); margin:0 auto; padding-left:clamp(18px,4vw,44px); padding-right:clamp(18px,4vw,44px); }
+    .hero-inner { position:relative; z-index:1; padding-top:96px; padding-bottom:56px; }
+    .kicker,.label { margin:0 0 14px; color:var(--muted); font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    h1 { margin:0; max-width:980px; font-size:clamp(42px,7vw,92px); line-height:.98; font-weight:650; }
+    h2 { margin:0 0 28px; font-size:clamp(30px,4.5vw,58px); line-height:1.04; font-weight:620; }
+    .intro,.media,.gallery { padding-top:clamp(44px,7vw,88px); padding-bottom:clamp(44px,7vw,88px); border-bottom:1px solid var(--line); }
+    .intro { display:grid; grid-template-columns:.82fr 1.18fr; gap:clamp(28px,6vw,86px); }
+    .meta { display:grid; gap:1px; align-self:start; border:1px solid var(--line); }
+    .meta div { display:grid; grid-template-columns:96px 1fr; gap:14px; padding:13px; background:rgba(255,255,255,.035); border-bottom:1px solid var(--line); font-size:14px; }
+    .meta div:last-child { border-bottom:0; }
+    .meta b,.copy p { color:var(--muted); }
+    .copy p { margin:0 0 18px; font-size:clamp(16px,1.7vw,20px); }
+    .button-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+    .button { display:inline-flex; border:1px solid currentColor; border-radius:999px; padding:8px 12px; color:var(--fg); font-size:12px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+    .gallery { display:grid; grid-template-columns:repeat(12,1fr); grid-auto-rows:92px; gap:10px; }
+    figure { margin:0; overflow:hidden; background:#111; }
+    .wide { grid-column:span 8; grid-row:span 5; } .tall { grid-column:span 4; grid-row:span 5; } .half { grid-column:span 6; grid-row:span 4; }
+    @media (max-width:900px){ .intro{grid-template-columns:1fr}.wide,.tall,.half{grid-column:span 12;grid-row:span 4} }
+  </style>
+</head>
+<body>
+  <nav class="nav"><a href="../index.html">人米犬頁製作</a><a href="../index.html#productions">Back to productions</a></nav>
+  <section class="hero"><img src="../artist_cv_assets/pdf2_p07_01.png" alt="《舞行六識》作品照片"><div class="hero-inner"><p class="kicker">Production / 2024</p><h1>《藝術 Fun 礁溪－舞行六識》</h1></div></section>
+  <section class="intro">
+    <div class="meta">
+      <div><b>年份</b><span>2024</span></div>
+      <div><b>形式</b><span>節慶場域／行進式身體／感官路徑</span></div>
+      <div><b>場域</b><span>藝術 Fun 礁溪</span></div>
+      <div><b>資料</b><span>劇照資料夾置於作品頁內</span></div>
+    </div>
+    <div class="copy">
+      <h2>作品介紹</h2>
+      <p>《舞行六識》以「六識」作為身體進入場域的方式，將觀看、聽覺、觸覺與空間移動轉化為節慶現場中的舞蹈路徑。</p>
+      <p>作品延續人米犬頁製作對地方場域與觀眾感知的關注，讓身體不只作為表演者，也成為引導觀眾重新閱讀環境的媒介。</p>
+      <div class="button-row"><a class="button" href="https://drive.google.com/drive/folders/1tCiB5UYWFmewQkk-yIA8g1eELzX8X2NK?usp=share_link" target="_blank" rel="noreferrer">劇照資料夾</a></div>
+    </div>
+  </section>
+  <section class="media"><p class="label">Context</p><h2>作品脈絡</h2><div class="copy"><p>《舞行六識》位在團隊從劇場作品向公共場域、節慶演出與行進式身體經驗延展的路徑中，與《城市轍跡》等公共藝術／現地作品形成相互呼應。</p></div></section>
+  <section class="gallery">
+    <figure class="wide"><img src="../artist_cv_assets/pdf2_p07_01.png" alt="《舞行六識》作品照片"></figure>
+    <figure class="tall"><img src="../artist_cv_assets/pdf2_p08_01.png" alt="人米犬頁製作作品照片"></figure>
+    <figure class="half"><img src="../artist_cv_assets/pdf2_p09_01.png" alt="人米犬頁製作作品照片"></figure>
+    <figure class="half"><img src="../artist_cv_assets/pdf2_p04_01.png" alt="人米犬頁製作作品照片"></figure>
+  </section>
+</body>
+</html>
