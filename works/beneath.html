@@ -72,7 +72,7 @@
     }
     h1 {
       margin: 0;
-      font-size: clamp(32px,4.8vw,62px);
+      font-size: clamp(28px,4vw,48px);
       line-height: .92;
       font-weight: 680;
     }
@@ -105,11 +105,11 @@
     .copy p {
       margin: 0 0 18px;
       color: var(--muted);
-      font-size: clamp(17px,2vw,23px);
+      font-size: clamp(15px,1.35vw,17px);
     }
     h2 {
       margin: 0 0 28px;
-      font-size: clamp(24px,3vw,38px);
+      font-size: clamp(21px,2.4vw,30px);
       line-height: 1;
       font-weight: 620;
     }
@@ -128,6 +128,17 @@
       color: var(--muted);
       text-align: center;
     }
+    .video {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #000;
+      overflow: hidden;
+    }
+    .video iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .asset-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    .asset-card { min-height: 360px; border: 1px solid var(--line); background: #000; }
+    .asset-card iframe { width: 100%; height: 100%; min-height: 360px; border: 0; display: block; }
     .button-row {
       display: flex;
       flex-wrap: wrap;
@@ -160,6 +171,7 @@
     .half { grid-column: span 6; grid-row: span 4; }
     @media (max-width: 900px) {
       .intro { grid-template-columns: 1fr; }
+      .asset-grid { grid-template-columns: 1fr; }
       .wide,.tall,.half { grid-column: span 12; grid-row: span 4; }
     }
   </style>
@@ -194,8 +206,27 @@
 
   <section class="media">
     <h2>精華影片</h2>
-    <div class="video-box">
-      <p>尚未放入影片連結。之後可嵌入 YouTube / Vimeo / IG Reels 精華。</p>
+    <div class="video"><iframe src="https://drive.google.com/file/d/1vzVR84s7viGWC8t9Xh7Sr0Ibfv0giri9/preview" title="《織繩界 Beneath》精華影片" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  </section>
+
+  <section class="media">
+    <p class="kicker">Trailer</p>
+    <h2>宣傳片</h2>
+    <div class="asset-grid">
+      <div class="video"><iframe src="https://drive.google.com/file/d/10XtrtoKS2seLSnncKluFB4nI47yb_JuF/preview" title="《織繩界 Beneath》宣傳片 A" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+      <div class="video"><iframe src="https://drive.google.com/file/d/1wmvgvA9Bxt9Jy1JhRzmn4ccezVCWvOaC/preview" title="《織繩界 Beneath》宣傳片 B" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+    </div>
+  </section>
+
+  <section class="media">
+    <p class="kicker">Visual Production</p>
+    <h2>節目冊／酷卡</h2>
+    <div class="copy">
+      <p>收錄《織繩界 Beneath》節目冊與酷卡視覺，呈現作品從演出製作、主視覺到宣傳物件的整體設計脈絡。</p>
+    </div>
+    <div class="asset-grid">
+      <div class="asset-card"><iframe src="https://drive.google.com/file/d/1kpqRklej5bXVf1VSKi9OgYkax9spVq_f/preview" title="《織繩界 Beneath》節目冊"></iframe></div>
+      <div class="asset-card"><iframe src="https://drive.google.com/file/d/11ko2QF6pI65vVh9murFHaMoL-pbDKMq6/preview" title="《織繩界 Beneath》酷卡"></iframe></div>
     </div>
   </section>
 
