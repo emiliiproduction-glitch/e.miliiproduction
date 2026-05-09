@@ -19,6 +19,7 @@
     h1 { margin:0; max-width:860px; font-size:clamp(28px,4vw,48px); line-height:.98; font-weight:650; }
     h2 { margin:0 0 24px; font-size:clamp(21px,2.4vw,30px); line-height:1.08; font-weight:620; }
     .intro,.timeline,.gallery { width:min(var(--max),100%); margin:0 auto; padding:clamp(44px,7vw,88px) clamp(18px,4vw,44px); border-bottom:1px solid var(--line); }
+    .video-section { width:min(1440px,100%); }
     .intro { display:grid; grid-template-columns:.82fr 1.18fr; gap:clamp(28px,6vw,86px); }
     .meta { display:grid; gap:1px; align-self:start; border:1px solid var(--line); }
     .meta div { display:grid; grid-template-columns:96px 1fr; gap:14px; padding:13px; background:rgba(255,255,255,.035); border-bottom:1px solid var(--line); font-size:14px; }
@@ -30,7 +31,7 @@
     .time-row b { font-size:13px; color:var(--fg); }
     .button-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
     .button { display:inline-flex; border:1px solid currentColor; border-radius:999px; padding:8px 12px; color:var(--fg); font-size:12px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
-    .video { aspect-ratio:16/9; width:100%; border:1px solid var(--line); background:#000; overflow:hidden; }
+    .video { aspect-ratio:16/8.6; width:100%; border:1px solid var(--line); background:#000; overflow:hidden; }
     .video iframe { width:100%; height:100%; border:0; display:block; }
     .asset-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
     .asset-card { min-height:360px; border:1px solid var(--line); background:#000; }
@@ -57,7 +58,7 @@
       <p>作品從 2024 臺北藝穗節發展，結合肢體、自然樂器、非語言聲音、服裝與現地空間，呈現花與蟲之間相互依存、掠食、寄生與蛻變的關係。2025 白晝之夜番外篇《蛹塚》延伸此系列，使「蛹」成為城市夜間中等待轉化的身體容器。</p>
     </div>
   </section>
-  <section class="timeline">
+  <section class="timeline video-section">
     <p class="label">Context</p>
     <h2>系列時間</h2>
     <div class="time-row"><b>2024</b><span>《花蟲弄》於臺北藝穗節發展，以花蟲意象與身體變形建立作品原型。</span></div>
@@ -66,9 +67,9 @@
   <section class="timeline">
     <p class="label">Film</p>
     <h2>精華影片</h2>
-    <div class="video"><iframe src="https://drive.google.com/file/d/1qjUPAQO55334qJFd-56AK9rCSc3V3Ctk/preview" title="《花蟲弄》精華影片" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+    <div class="video"><iframe src="https://drive.google.com/file/d/1qjUPAQO55334qJFd-56AK9rCSc3V3Ctk/preview" title="《花蟲弄》精華影片" allow="autoplay; fullscreen" sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen></iframe></div>
   </section>
-  <section class="timeline">
+  <section class="timeline video-section">
     <p class="label">Trailer</p>
     <h2>宣傳片</h2>
     <div class="video"><iframe src="https://www.youtube.com/embed/ie6ziEcyBvY" title="《花蟲弄》宣傳片" allowfullscreen></iframe></div>
@@ -80,8 +81,8 @@
       <p>收錄作品節目冊與酷卡視覺，呈現團隊在演出統籌、視覺製作、設計協作與宣傳資料上的整體能力。</p>
     </div>
     <div class="asset-grid">
-      <div class="asset-card"><iframe src="https://drive.google.com/file/d/1VTJ7f1VwPuzC40rHozQT4VTLIfmQwayd/preview" title="《花蟲弄》節目冊"></iframe></div>
-      <div class="asset-card"><iframe src="https://drive.google.com/file/d/1SQVYni8ktK9SoFaV0GoINp9PsT2F5CiG/preview" title="《花蟲弄》酷卡"></iframe></div>
+      <div class="asset-card"><iframe src="https://drive.google.com/file/d/1VTJ7f1VwPuzC40rHozQT4VTLIfmQwayd/preview" title="《花蟲弄》節目冊" sandbox="allow-scripts allow-same-origin allow-presentation"></iframe></div>
+      <div class="asset-card"><iframe src="https://drive.google.com/file/d/1SQVYni8ktK9SoFaV0GoINp9PsT2F5CiG/preview" title="《花蟲弄》酷卡" sandbox="allow-scripts allow-same-origin allow-presentation"></iframe></div>
     </div>
   </section>
   <section class="timeline">

@@ -30,9 +30,9 @@
     .time-row b { font-size:13px; color:var(--fg); }
     .button-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
     .button { display:inline-flex; border:1px solid currentColor; border-radius:999px; padding:8px 12px; color:var(--fg); font-size:12px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
-    .video { aspect-ratio:16/9; width:100%; border:1px solid var(--line); background:#000; overflow:hidden; }
+    .video { aspect-ratio:16/8.6; width:100%; border:1px solid var(--line); background:#000; overflow:hidden; }
     .video iframe { width:100%; height:100%; border:0; display:block; }
-    .media { width:min(var(--max),100%); margin:0 auto; padding:clamp(44px,7vw,88px) clamp(18px,4vw,44px); border-bottom:1px solid var(--line); }
+    .media { width:min(1440px,100%); margin:0 auto; padding:clamp(44px,7vw,88px) clamp(18px,4vw,44px); border-bottom:1px solid var(--line); }
     .gallery { display:grid; grid-template-columns:repeat(12,1fr); grid-auto-rows:92px; gap:10px; }
     figure { margin:0; overflow:hidden; background:#111; }
     .wide { grid-column:span 8; grid-row:span 5; } .tall { grid-column:span 4; grid-row:span 5; } .half { grid-column:span 6; grid-row:span 4; }
@@ -64,7 +64,7 @@
   <section class="media">
     <p class="label">Film</p>
     <h2>演出精華影片</h2>
-    <div class="video"><iframe src="https://drive.google.com/file/d/1KdmmKqAVl9sOrZww37krWURs0aozfcCG/preview" title="《虎刺梅 x 鹿野神社》演出精華影片" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+    <div class="video"><iframe src="https://drive.google.com/file/d/1KdmmKqAVl9sOrZww37krWURs0aozfcCG/preview" title="《虎刺梅 x 鹿野神社》演出精華影片" allow="autoplay; fullscreen" sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen></iframe></div>
   </section>
   <section class="media">
     <p class="label">Trailer</p>
@@ -87,6 +87,10 @@
     <figure class="tall"><img src="../artist_cv_assets/production_media/tiger/tiger-luye-stage-04.jpg" alt="《虎刺梅 x 鹿野神社》劇照"></figure>
     <figure class="half"><img src="../artist_cv_assets/production_media/tiger/tiger-luye-stage-02.jpg" alt="《虎刺梅 x 鹿野神社》劇照"></figure>
     <figure class="half"><img src="../artist_cv_assets/production_media/tiger/tiger-luye-stage-03.jpg" alt="《虎刺梅 x 鹿野神社》劇照"></figure>
+    <figure class="wide"><img src="../artist_cv_assets/production_media/tiger/tiger-luye-stage-05.jpg" alt="《虎刺梅 x 鹿野神社》劇照"></figure>
+    <figure class="half"><img src="../artist_cv_assets/production_media/tiger/tiger-luye-stage-06.jpg" alt="《虎刺梅 x 鹿野神社》劇照"></figure>
+    <figure class="half"><img src="../artist_cv_assets/production_media/tiger/tiger-luye-stage-07.jpg" alt="《虎刺梅 x 鹿野神社》劇照"></figure>
+    <figure class="tall"><img src="../artist_cv_assets/production_media/tiger/tiger-luye-stage-08.jpg" alt="《虎刺梅 x 鹿野神社》劇照"></figure>
   </section>
 </body>
 </html>
