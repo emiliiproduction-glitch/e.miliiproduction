@@ -77,8 +77,9 @@
     .prod-info b { display:block; margin-bottom:8px; color:var(--muted); font-size:12px; }
     .prod-info h3 { margin:0; color:var(--fg); font-size:clamp(18px,1.65vw,22px); line-height:1.12; }
     .prod-info p { max-width:92%; margin:10px 0 0; color:rgba(244,241,234,.78); font-size:13px; line-height:1.5; }
-    .archive { margin-top:26px; border-top:1px solid var(--line); }
-    .archive-row { display:grid; grid-template-columns:100px 1fr auto; gap:18px; padding:14px 0; border-bottom:1px solid var(--line); color:var(--muted); }
+    .archive { margin-top:26px; padding:8px 16px; border:1px solid var(--line); background:rgba(244,241,234,.045); }
+    .archive-row { display:grid; grid-template-columns:100px 1fr auto; gap:18px; padding:16px 0; border-bottom:1px solid var(--line); color:var(--muted); transition:background .18s ease, padding .18s ease; }
+    .archive-row:hover { background:rgba(244,241,234,.06); padding-left:10px; padding-right:10px; }
     .archive-row b,.archive-row strong { color:var(--fg); }
     .about-grid { display:grid; grid-template-columns:.86fr 1fr; gap:clamp(28px,6vw,86px); align-items:center; }
     .about-images { display:grid; grid-template-columns:1fr .82fr; gap:12px; min-height:520px; }
