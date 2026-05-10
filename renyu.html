@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="./favicon.ico?v=8">
+  <link rel="icon" type="image/png" href="./favicon.png?v=8">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=8">
+  <title>人嶼 Renyu｜人米犬頁製作</title>
+  <style>
+    :root { --bg:#030303; --fg:#f4f1ea; --muted:rgba(244,241,234,.66); --line:rgba(244,241,234,.16); --panel:#0b0b0b; --red:#7c100c; --max:1280px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; background:var(--bg); }
+    body { margin:0; background:var(--bg); color:var(--fg); font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif; line-height:1.62; }
+    a { color:inherit; text-decoration:none; }
+    img { display:block; width:100%; height:100%; object-fit:cover; }
+    .topbar { position:fixed; inset:0 0 auto; z-index:20; display:grid; grid-template-columns:260px 1fr; min-height:64px; background:rgba(3,3,3,.78); border-bottom:1px solid var(--line); backdrop-filter:blur(18px); }
+    .brand,.nav a { display:flex; align-items:center; border-right:1px solid var(--line); padding:0 clamp(14px,2vw,28px); color:var(--fg); font-size:12px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; }
+    .brand-logo { display:block; width:118px; height:58px; object-fit:contain; object-position:left center; }
+    .nav { display:grid; grid-template-columns:repeat(5,1fr); }
+    .nav a { justify-content:center; }
+    .nav a:hover { background:rgba(255,255,255,.08); }
+    .hero { min-height:100svh; position:relative; overflow:hidden; display:grid; align-items:end; background:#000; }
+    .hero-bg { position:absolute; inset:0; opacity:.58; filter:grayscale(.2) contrast(1.08); object-position:center 42%; }
+    .hero:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.28) 42%,rgba(0,0,0,.94)),radial-gradient(circle at 78% 82%,rgba(125,16,12,.78),transparent 42%),linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.18)); }
+    .hero-inner { position:relative; z-index:1; width:min(var(--max),100%); margin:0 auto; padding:112px clamp(18px,4vw,44px) 62px; }
+    .renyu-logo { width:min(320px,64vw); height:auto; object-fit:contain; margin-bottom:clamp(44px,8vw,96px); filter:drop-shadow(0 22px 42px rgba(0,0,0,.42)); }
+    .kicker,.label { margin:0 0 16px; color:var(--muted); font-size:12px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
+    h1 { margin:0; max-width:980px; font-size:clamp(44px,8vw,112px); line-height:.86; font-weight:760; letter-spacing:-.03em; text-transform:uppercase; }
+    .hero-copy { max-width:720px; margin:28px 0 0; color:rgba(244,241,234,.82); font-size:clamp(16px,1.5vw,20px); line-height:1.72; }
+    .section { border-top:1px solid var(--line); background:var(--bg); }
+    .section-inner { width:min(var(--max),100%); margin:0 auto; padding:clamp(54px,8vw,110px) clamp(18px,4vw,44px); }
+    .intro { display:grid; grid-template-columns:.86fr 1.14fr; gap:clamp(32px,7vw,100px); align-items:start; }
+    h2 { margin:0; font-size:clamp(30px,5vw,72px); line-height:.9; font-weight:760; letter-spacing:-.03em; text-transform:uppercase; }
+    .copy p { margin:0 0 20px; color:var(--muted); font-size:clamp(15px,1.35vw,18px); line-height:1.78; }
+    .white-line { width:min(46vw,520px); height:8px; margin:28px 0 0 calc(-1 * clamp(18px,4vw,44px)); background:var(--fg); }
+    .split { display:grid; grid-template-columns:1fr 1fr; min-height:560px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .split-copy { display:grid; align-content:end; padding:clamp(34px,6vw,88px); background:radial-gradient(circle at 75% 100%,rgba(124,16,12,.78),transparent 44%),#030303; border-right:1px solid var(--line); }
+    .split-copy h2 { margin-bottom:24px; }
+    .split-copy p { max-width:560px; margin:0; color:rgba(244,241,234,.78); font-size:clamp(15px,1.35vw,18px); line-height:1.72; }
+    .split-image { min-height:560px; background:#111; }
+    .program-list { border-top:1px solid var(--fg); }
+    .program-row { display:grid; grid-template-columns:110px 1fr auto; gap:20px; align-items:center; min-height:104px; border-bottom:1px solid var(--fg); color:var(--fg); }
+    .program-row b { font-size:16px; }
+    .program-row strong { font-size:clamp(20px,2vw,30px); line-height:1.15; font-weight:720; }
+    .program-row span { color:var(--muted); font-size:15px; text-align:right; }
+    .plus { font-size:34px; line-height:1; color:var(--fg); }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; border:1px solid var(--line); background:var(--line); }
+    .card { min-height:250px; padding:clamp(22px,3vw,34px); background:var(--panel); }
+    .card b { color:var(--muted); }
+    .card h3 { margin:42px 0 14px; font-size:clamp(19px,1.8vw,25px); line-height:1.12; }
+    .card p { margin:0; color:var(--muted); font-size:14px; line-height:1.68; }
+    .button-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:30px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-width:180px; border:1px solid currentColor; padding:12px 18px; color:var(--fg); font-size:12px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
+    .footer { background:radial-gradient(circle at 76% 100%,rgba(124,16,12,.75),transparent 44%),#030303; }
+    .footer-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,6vw,90px); }
+    .footer-links { display:grid; gap:8px; color:var(--muted); font-size:15px; }
+    @media (max-width:900px) {
+      .topbar { grid-template-columns:1fr; }
+      .nav { grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); }
+      .nav a { min-height:42px; }
+      .intro,.split,.cards,.footer-grid { grid-template-columns:1fr; }
+      .hero-inner { padding-top:150px; }
+      .program-row { grid-template-columns:76px 1fr; }
+      .program-row span,.plus { grid-column:2; text-align:left; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="人米犬頁製作首頁"><img class="brand-logo" src="artist_cv_assets/logos/pudgala-logo.png" alt="人米犬頁製作"></a>
+    <nav class="nav" aria-label="主選單"><a href="index.html#latest">News</a><a href="index.html#productions">Productions</a><a href="index.html#about">About</a><a href="renyu.html">Workshops</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero-bg" src="artist_cv_assets/drive_stage/stage_03.jpg" alt="人嶼身體工作坊影像">
+      <div class="hero-inner">
+        <img class="renyu-logo" src="artist_cv_assets/logos/renyu-logo.png" alt="人嶼 logo">
+        <p class="kicker">Renyu / Workshop Platform</p>
+        <h1>Workshops</h1>
+        <p class="hero-copy">人嶼是人米犬頁製作延伸出的教學平台，將團隊在創作現場累積的身體覺察、即興、聲音與場域感知方法，轉化為課程、工作坊與創作陪伴。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner intro">
+        <div>
+          <h2>About Renyu</h2>
+          <div class="white-line"></div>
+        </div>
+        <div class="copy">
+          <p>人嶼關注身體如何進入環境、聲音、物件與他者之間。課程不是把舞台語彙拆成技巧，而是把創作中的感知、反應、組織與觀看方法，帶回可練習、可分享的身體經驗。</p>
+          <p>平台延伸自人米犬頁製作的劇場與場域創作，適合表演者、創作者、教育工作者，以及希望透過身體重新理解自身與空間關係的參與者。</p>
+          <div class="button-row"><a class="button" href="https://www.instagram.com/renyu.within/" target="_blank" rel="noreferrer">Instagram</a><a class="button" href="mailto:e.miliiproduction@gmail.com">Contact</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="split-copy">
+        <p class="label">Practice</p>
+        <h2>Body, Sound, Site</h2>
+        <p>工作坊以身體覺察、即興、聲響聆聽與場域感知為核心，讓參與者在練習中建立身體的敏銳度、空間判讀與創作組織能力。</p>
+      </div>
+      <figure class="split-image"><img src="artist_cv_assets/drive_stage/stage_05.jpg" alt="人嶼工作坊影像"></figure>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <p class="label">Upcoming / Latest</p>
+        <h2>Workshop News</h2>
+        <div class="program-list">
+          <a class="program-row" href="https://www.instagram.com/renyu.within/" target="_blank" rel="noreferrer"><b>Now</b><strong>課程與工作坊消息</strong><span>以人嶼 Instagram 公布</span><span class="plus">+</span></a>
+          <a class="program-row" href="mailto:e.miliiproduction@gmail.com"><b>Open</b><strong>團體課程與合作邀約</strong><span>學校、場館、藝術節與社群工作坊</span><span class="plus">+</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <p class="label">Formats</p>
+        <h2>Program Formats</h2>
+        <div class="cards">
+          <article class="card"><b>01</b><h3>身體覺察與即興</h3><p>從呼吸、重量、觸覺、節奏與關節啟動身體，發展可回到創作與日常的感知練習。</p></article>
+          <article class="card"><b>02</b><h3>聲音與身體</h3><p>透過非語言聲音、聆聽、共振與身體反應，建立聲響和移動之間的創作關係。</p></article>
+          <article class="card"><b>03</b><h3>場域感知</h3><p>帶領參與者閱讀空間、物件、歷史與身體路徑，讓場域成為創作和練習的一部分。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section footer" id="contact">
+      <div class="section-inner footer-grid">
+        <div>
+          <p class="label">Contact</p>
+          <h2>Invite Renyu</h2>
+          <p class="hero-copy">工作坊、課程合作、學校邀約與場館合作，歡迎來信討論。</p>
+          <div class="button-row"><a class="button" href="mailto:e.miliiproduction@gmail.com">e.miliiproduction@gmail.com</a></div>
+        </div>
+        <div>
+          <p class="label">Site Navigation</p>
+          <nav class="footer-links" aria-label="頁尾導覽"><a href="index.html">Home</a><a href="index.html#productions">Productions</a><a href="index.html#about">About</a><a href="renyu.html">Workshops</a><a href="https://www.instagram.com/renyu.within/" target="_blank" rel="noreferrer">Renyu Instagram</a></nav>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
