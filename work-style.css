@@ -1,0 +1,208 @@
+body {
+  background:
+    radial-gradient(circle at 90% 42%, rgba(120, 12, 8, .42), transparent 28%),
+    radial-gradient(circle at 8% 92%, rgba(128, 12, 8, .38), transparent 30%),
+    #03070b !important;
+}
+
+.nav {
+  min-height: 76px !important;
+  padding: 0 clamp(22px, 5vw, 72px) !important;
+}
+
+.nav-logo {
+  width: 136px !important;
+  height: 58px !important;
+  object-fit: contain !important;
+}
+
+.nav a:last-child {
+  color: rgba(244, 241, 234, .76) !important;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.hero {
+  min-height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  overflow: visible !important;
+  padding: 132px clamp(18px, 5vw, 74px) 54px !important;
+  background:
+    linear-gradient(180deg, rgba(3, 7, 11, 1), rgba(3, 7, 11, .94) 48%, rgba(55, 5, 4, .62) 100%) !important;
+}
+
+.hero::after {
+  display: none !important;
+}
+
+.hero-inner {
+  order: 1 !important;
+  position: relative !important;
+  z-index: 1 !important;
+  width: min(1500px, 100%) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+
+.hero > img {
+  order: 2 !important;
+  position: relative !important;
+  inset: auto !important;
+  width: min(1500px, 100%) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 16 / 8.2 !important;
+  margin: clamp(34px, 5vw, 72px) auto 0 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  opacity: .92 !important;
+  transform: none !important;
+  filter: contrast(1.06) saturate(.94) !important;
+}
+
+.kicker,
+.label {
+  color: rgba(244, 241, 234, .62) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+}
+
+.hero h1,
+h1 {
+  max-width: none !important;
+  color: #fff !important;
+  font-size: clamp(40px, 6.6vw, 106px) !important;
+  line-height: .92 !important;
+  font-weight: 780 !important;
+  letter-spacing: 0 !important;
+}
+
+.title-en {
+  display: block !important;
+  margin-top: 16px !important;
+  color: rgba(244, 241, 234, .72) !important;
+  font-size: clamp(13px, 1.25vw, 20px) !important;
+  line-height: 1.35 !important;
+  font-weight: 800 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+}
+
+.intro,
+.timeline,
+.media {
+  width: min(1500px, 100%) !important;
+  margin: 0 auto !important;
+  padding: clamp(54px, 8vw, 118px) clamp(18px, 5vw, 74px) !important;
+  border-bottom: 1px solid rgba(244, 241, 234, .15) !important;
+}
+
+.intro {
+  display: grid !important;
+  grid-template-columns: .86fr 1.14fr !important;
+  gap: clamp(32px, 7vw, 110px) !important;
+}
+
+.intro h2,
+.timeline h2,
+.media h2 {
+  color: #fff !important;
+  font-size: clamp(28px, 4.2vw, 70px) !important;
+  line-height: .96 !important;
+  font-weight: 780 !important;
+  letter-spacing: 0 !important;
+  margin: 0 0 clamp(24px, 4vw, 48px) !important;
+}
+
+.intro h2::after,
+.timeline h2::after,
+.media h2::after {
+  content: "";
+  display: block;
+  width: min(46vw, 620px);
+  height: 6px;
+  margin-top: 24px;
+  background: #f4f1ea;
+}
+
+.copy p,
+.timeline p,
+.media p {
+  color: rgba(244, 241, 234, .78) !important;
+  font-size: clamp(16px, 1.35vw, 20px) !important;
+  line-height: 1.72 !important;
+}
+
+.meta {
+  border: 1px solid rgba(244, 241, 234, .18) !important;
+  background: rgba(255, 255, 255, .02) !important;
+}
+
+.meta div {
+  background: rgba(255, 255, 255, .026) !important;
+  border-bottom: 1px solid rgba(244, 241, 234, .14) !important;
+}
+
+.video {
+  aspect-ratio: 16 / 8.1 !important;
+  border: 1px solid rgba(244, 241, 234, .2) !important;
+  background: #000 !important;
+}
+
+.asset-grid {
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+.asset-card {
+  min-height: clamp(360px, 44vw, 640px) !important;
+  border: 1px solid rgba(244, 241, 234, .2) !important;
+}
+
+.gallery {
+  width: min(1500px, 100%) !important;
+  grid-auto-rows: 112px !important;
+  gap: clamp(12px, 1.5vw, 22px) !important;
+  padding: clamp(54px, 8vw, 118px) clamp(18px, 5vw, 74px) !important;
+}
+
+.button {
+  border-radius: 0 !important;
+  padding: 14px 22px !important;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    min-height: 66px !important;
+  }
+
+  .nav-logo {
+    width: 116px !important;
+    height: 52px !important;
+  }
+
+  .hero {
+    padding-top: 106px !important;
+  }
+
+  .hero h1,
+  h1 {
+    font-size: clamp(34px, 12vw, 68px) !important;
+  }
+
+  .hero > img {
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  .intro {
+    grid-template-columns: 1fr !important;
+  }
+
+  .gallery {
+    grid-auto-rows: 82px !important;
+  }
+}

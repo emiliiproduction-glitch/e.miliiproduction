@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="./favicon.ico?v=8">
+  <link rel="icon" type="image/png" href="./favicon.png?v=8">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=8">
+  <title>作品集 Productions｜人米犬頁製作</title>
+  <style>
+    :root { --bg:#03070b; --fg:#f5f1ea; --muted:rgba(245,241,234,.64); --line:rgba(245,241,234,.16); --max:1580px; }
+    * { box-sizing:border-box; }
+    html { background:var(--bg); }
+    body { margin:0; background:radial-gradient(circle at 50% 28%,rgba(122,13,8,.78),transparent 31%),linear-gradient(180deg,#03070b 0%,#03070b 24%,#150303 52%,#03070b 100%); color:var(--fg); font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif; line-height:1.55; }
+    a { color:inherit; text-decoration:none; }
+    img { display:block; width:100%; height:100%; object-fit:cover; }
+    .topbar { position:fixed; inset:0 0 auto; z-index:20; display:grid; grid-template-columns:300px 1fr; min-height:76px; background:rgba(3,7,11,.78); border-bottom:1px solid var(--line); backdrop-filter:blur(18px); }
+    .brand,.nav a { display:flex; align-items:center; border-right:1px solid var(--line); padding:0 clamp(16px,2vw,30px); color:var(--fg); font-size:12px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+    .brand-logo { width:136px; height:58px; object-fit:contain; object-position:left center; }
+    .nav { display:grid; grid-template-columns:repeat(5,1fr); }
+    .nav a { justify-content:center; }
+    .nav a:hover,.brand:hover { background:rgba(255,255,255,.07); }
+    .hero { min-height:54svh; display:grid; place-items:end center; padding:130px clamp(18px,5vw,74px) 76px; text-align:center; }
+    .hero-inner { width:min(var(--max),100%); }
+    .kicker { margin:0 0 16px; color:var(--muted); font-size:12px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; }
+    h1 { margin:0; color:#fff; font-size:clamp(52px,10vw,150px); line-height:.86; font-weight:820; letter-spacing:0; }
+    .hero p:last-child { max-width:760px; margin:28px auto 0; color:rgba(245,241,234,.78); font-size:clamp(15px,1.35vw,20px); line-height:1.72; }
+    .section { width:min(var(--max),100%); margin:0 auto; padding:clamp(32px,5vw,76px) clamp(18px,5vw,74px); }
+    .section-head { display:flex; justify-content:space-between; gap:28px; align-items:end; margin-bottom:clamp(22px,3vw,38px); border-top:1px solid var(--line); padding-top:28px; }
+    h2 { margin:0; color:#fff; font-size:clamp(28px,4.6vw,74px); line-height:.92; font-weight:800; letter-spacing:0; }
+    .section-head p { max-width:520px; margin:0; color:var(--muted); font-size:14px; line-height:1.7; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.8vw,28px); }
+    .tile { position:relative; min-height:clamp(320px,32vw,520px); overflow:hidden; background:#111; border:1px solid rgba(245,241,234,.08); isolation:isolate; }
+    .tile img { position:absolute; inset:0; opacity:.86; transition:transform .38s ease, opacity .38s ease, filter .38s ease; }
+    .tile::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.72)); opacity:0; transition:opacity .24s ease; }
+    .tile-title { position:absolute; z-index:1; inset:auto 0 0; padding:22px; color:#fff; opacity:0; transform:translateY(10px); transition:opacity .24s ease, transform .24s ease; }
+    .tile-title strong { display:block; font-size:clamp(22px,2.2vw,34px); line-height:1.05; font-weight:850; }
+    .tile-title span { display:block; margin-top:8px; color:rgba(245,241,234,.72); font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .tile:hover img { transform:scale(1.045); opacity:.96; filter:contrast(1.08); }
+    .tile:hover::after,.tile:hover .tile-title { opacity:1; transform:translateY(0); }
+    .tile.wide { grid-column:span 2; }
+    .tile.tall { min-height:clamp(420px,42vw,680px); }
+    .footer { margin-top:clamp(40px,8vw,120px); padding:clamp(52px,7vw,92px) clamp(18px,5vw,74px); background:radial-gradient(circle at 76% 100%,rgba(122,13,8,.82),transparent 42%),#03070b; border-top:1px solid var(--line); }
+    .footer-inner { width:min(var(--max),100%); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:50px; }
+    .footer h2 { font-size:clamp(34px,5vw,78px); }
+    .footer p,.footer a { color:var(--muted); }
+    .button { display:inline-flex; margin-top:22px; border:1px solid currentColor; padding:14px 22px; color:var(--fg); font-size:12px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; }
+    @media (max-width:1000px){ .topbar{grid-template-columns:1fr}.nav{grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}.brand{min-height:66px}.grid{grid-template-columns:1fr}.tile,.tile.tall{min-height:360px}.tile.wide{grid-column:span 1}.tile::after,.tile-title{opacity:1;transform:none}.section-head,.footer-inner{display:grid;grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="人米犬頁製作首頁"><img class="brand-logo" src="artist_cv_assets/logos/pudgala-logo.png" alt="人米犬頁製作"></a>
+    <nav class="nav" aria-label="主選單"><a href="index.html#latest">News</a><a href="productions.html">Productions</a><a href="index.html#about">About</a><a href="renyu.html">Workshops</a><a href="index.html#contact">Contact</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="kicker">Pudgala Body & Sound Production</p>
+        <h1>Productions</h1>
+        <p>以劇場舞作為核心，延伸至現地製作、節慶場域、儀式肢體聲響與影像合作。此頁整理人米犬頁製作的主要作品與系列脈絡。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><p class="kicker">Selected Productions</p><h2>主要作品</h2></div><p>三個主要系列構成目前團隊最鮮明的創作路徑：繩與身體、神社場域、花蟲與蛻變。</p></div>
+      <div class="grid">
+        <a class="tile tall" href="works/beneath.html"><img src="artist_cv_assets/series_cards/beneath-card.jpg" alt="織繩界 Beneath"><span class="tile-title"><strong>織繩界</strong><span>Beneath / 2026</span></span></a>
+        <a class="tile tall" href="works/tiger-luye.html"><img src="artist_cv_assets/series_cards/tiger-luye-card.jpg" alt="虎刺梅 x 鹿野神社 Crown of Thorns x Luye Shrine"><span class="tile-title"><strong>虎刺梅 x 鹿野神社</strong><span>Crown of Thorns x Luye Shrine / 2025</span></span></a>
+        <a class="tile tall" href="works/flower-insects.html"><img src="artist_cv_assets/series_cards/flower-insects-card.jpg" alt="花蟲弄 Entomofloral Chronicles"><span class="tile-title"><strong>花蟲弄</strong><span>Entomofloral Chronicles / 2024</span></span></a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><p class="kicker">Site / Festival</p><h2>場域與節慶</h2></div><p>針對藝術節、地方場域與藝術村現場發展的演出版本，呈現團隊在空間與製作條件中的調度能力。</p></div>
+      <div class="grid">
+        <a class="tile wide" href="works/wuxing-six-senses.html"><img src="artist_cv_assets/production_media/wuxing/wuxing-stage-01.jpg" alt="藝術 Fun 礁溪－舞行六識 Six Senses in Motion"><span class="tile-title"><strong>藝術 Fun 礁溪－舞行六識</strong><span>Six Senses in Motion / 2024</span></span></a>
+        <a class="tile" href="works/hongmei-opening.html"><img src="artist_cv_assets/production_media/hongmei/hongmei-stage-01.jpg" alt="鴻梅國際藝術村現地演出 Hongmei International Artist Village Site Performance"><span class="tile-title"><strong>鴻梅國際藝術村現地演出</strong><span>Hongmei International Artist Village Site Performance / 2025</span></span></a>
+        <a class="tile" href="works/city-traces.html"><img src="artist_cv_assets/drive_stage/stage_02.jpg" alt="城市轍跡 City Traces"><span class="tile-title"><strong>城市轍跡</strong><span>City Traces / 2024</span></span></a>
+        <a class="tile wide" href="works/medicine-buddha.html"><img src="artist_cv_assets/production_media/medicine/medicine-stage-01.jpg" alt="舞·藥師儀式肢體聲響劇場 Medicine Buddha Ritual Body-Sound Theatre"><span class="tile-title"><strong>舞·藥師儀式肢體聲響劇場</strong><span>Medicine Buddha Ritual Body-Sound Theatre / 2023</span></span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><p class="kicker">Contact</p><h2>Contact Us</h2><p>演出邀約、現地製作、影像拍攝、工作坊與跨域合作，歡迎來信。</p><a class="button" href="mailto:e.miliiproduction@gmail.com">e.miliiproduction@gmail.com</a></div>
+      <div><p class="kicker">Navigation</p><p><a href="index.html">Home</a><br><a href="productions.html">Productions</a><br><a href="renyu.html">Renyu Workshops</a><br><a href="https://www.instagram.com/e.milii____f?igsh=MTB3dXF5dGdzY2YzcA%3D%3D" target="_blank" rel="noreferrer">Instagram</a></p></div>
+    </div>
+  </footer>
+</body>
+</html>
