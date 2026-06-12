@@ -17,6 +17,7 @@
     .nav { position:fixed; inset:0 0 auto; z-index:10; min-height:58px; display:flex; justify-content:space-between; align-items:center; padding:0 clamp(18px,4vw,44px); border-bottom:1px solid var(--line); background:rgba(3,3,3,.76); backdrop-filter:blur(18px); font-size:13px; font-weight:800; }
     .nav-logo { display:block; width:104px; height:44px; object-fit:contain; object-position:left center; }
     .hero { min-height:92svh; position:relative; display:grid; align-items:end; overflow:hidden; background:#000; }
+    .hero.no-image { background:radial-gradient(circle at 52% 36%,rgba(122,13,8,.46),transparent 34%),linear-gradient(135deg,#050505,#120303 55%,#050505); }
     .hero img { position:absolute; inset:0; opacity:.78; filter:grayscale(.06) contrast(1.05); transform:scale(1.04); }
     .hero:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.22) 42%,rgba(0,0,0,.94)),linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.08)); }
     .hero-inner,.intro,.media,.gallery { width:min(var(--max),100%); margin:0 auto; padding-left:clamp(18px,4vw,44px); padding-right:clamp(18px,4vw,44px); }
@@ -42,18 +43,19 @@
 </head>
 <body>
   <nav class="nav"><a href="../index.html" aria-label="人米犬頁製作首頁"><img class="nav-logo" src="../artist_cv_assets/logos/pudgala-logo.png" alt="人米犬頁製作"></a><a href="../productions.html">Back to productions</a></nav>
-  <section class="hero"><img src="../artist_cv_assets/production_media/wuxing/wuxing-stage-01.jpg" alt="舞行六識作品照片"><div class="hero-inner"><p class="kicker">Production / 2024</p><h1>藝術 Fun 礁溪－舞行六識<span class="title-en">Six Senses in Motion</span></h1></div></section>
+  <section class="hero no-image"><div class="hero-inner"><p class="kicker">Production / 2024</p><h1>藝術 Fun 礁溪－舞行六識<span class="title-en">Six Senses in Motion</span></h1></div></section>
   <section class="intro">
     <div class="meta">
       <div><b>年份</b><span>2024</span></div>
-      <div><b>關鍵字</b><span>行進式身體／六識感知／礁溪／感官路徑</span></div>
+      <div><b>關鍵字</b><span>五行／六識／礁溪／引領遊走式環境劇場</span></div>
     </div>
     <div class="copy">
       <h2>作品介紹</h2>
-      <p>舞行六識 Six Senses in Motion 以六識作為身體進入環境的方式，將觀看、聽覺、觸覺與空間移動轉化為一條可被觀眾跟隨的舞蹈路徑。</p>
-      <p>作品延續人米犬頁製作對地方記憶與觀眾感知的關注，讓身體不只作為表演者，也成為引導觀眾重新閱讀環境的媒介。</p>
+      <p>人米犬頁製作近年來以《虎刺梅》系列作品，秉持「就地取材」與「因地制宜」的編創理念，行走於不同城市，探索人文歷史與文化土地。</p>
+      <p>此次於「藝起 Fun 礁溪－舞 Chill」活動中呈現《舞行六識》，以五行——金、木、水、火、土，與六識——眼、耳、鼻、舌、身、意，作為作品核心理念。</p>
+      <p>作品融入礁溪跑馬古道公園自然與建築相交的地域特質，透過聽覺、視覺、觸覺、嗅覺與味覺等多感官經驗展開，感受自我精神意識於環境中的靈魂樣貌。</p>
+      <p>觀眾在引領遊走式的環境劇場中漫遊土地，經由聲音、肢體、繪畫與音樂相互交融，探索場域各個空間的想像。作品融入人米犬頁製作特有的儀式調性，以祈福與感謝天地的儀式性舞蹈，並邀請歌者傳遞土地的天語，讓觀眾沉浸其中，重新認識這片土地。</p>
     </div>
   </section>
-  <section class="media"><p class="label">Context</p><h2>作品脈絡</h2><div class="copy"><p>舞行六識位在團隊從劇場作品向公共空間與行進式身體經驗延展的路徑中，與城市轍跡等作品形成相互呼應。</p></div></section>
 </body>
 </html>

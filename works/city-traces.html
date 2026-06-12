@@ -17,6 +17,7 @@
     .nav { position:fixed; inset:0 0 auto; z-index:10; min-height:58px; display:flex; justify-content:space-between; align-items:center; padding:0 clamp(18px,4vw,44px); border-bottom:1px solid var(--line); background:rgba(3,3,3,.75); backdrop-filter:blur(18px); font-size:13px; font-weight:800; }
     .nav-logo { display:block; width:104px; height:44px; object-fit:contain; object-position:left center; }
     .hero { min-height:100svh; position:relative; display:grid; align-items:end; overflow:hidden; background:#000; }
+    .hero.no-image { background:radial-gradient(circle at 52% 36%,rgba(122,13,8,.46),transparent 34%),linear-gradient(135deg,#050505,#120303 55%,#050505); }
     .hero img { position:absolute; inset:0; opacity:.82; filter:grayscale(.08) contrast(1.06); transform:scale(1.04); }
     .hero:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.18) 40%,rgba(0,0,0,.94)),linear-gradient(90deg,rgba(0,0,0,.68),rgba(0,0,0,.06)); }
     .hero-inner { position:relative; z-index:1; width:min(var(--max),100%); margin:0 auto; padding:96px clamp(18px,4vw,44px) 56px; }
@@ -43,23 +44,27 @@
 </head>
 <body>
   <nav class="nav"><a href="../index.html" aria-label="人米犬頁製作首頁"><img class="nav-logo" src="../artist_cv_assets/logos/pudgala-logo.png" alt="人米犬頁製作"></a><a href="../productions.html">Back to productions</a></nav>
-  <section class="hero"><img src="../artist_cv_assets/drive_stage/stage_01.jpg" alt="城市轍跡演出照片"><div class="hero-inner"><p class="kicker">Production / 2024</p><h1>城市轍跡<span class="title-en">City Traces</span></h1></div></section>
+  <section class="hero no-image"><div class="hero-inner"><p class="kicker">Production / 2024</p><h1>城市轍跡<span class="title-en">City Traces</span></h1></div></section>
   <section class="intro">
     <div class="meta">
       <div><b>年份</b><span>2024</span></div>
-      <div><b>關鍵字</b><span>公共藝術／現地表演／城市路徑／舞蹈編排</span></div>
+      <div><b>關鍵字</b><span>北門／麻繩與顏料／城市紋理／公共藝術</span></div>
     </div>
     <div class="copy">
       <h2>作品介紹</h2>
-      <p>城市轍跡 City Traces 以城市紋理、行走軌跡與公共空間作為身體的起點，將舞蹈從劇場推向日常空間，讓觀眾在既有地景中重新感受時間的流動。</p>
-      <p>作品以公共空間中的現地表演形式出現，將隊形、路徑、聲響與身體編排交織成一場短暫而清晰的城市觀看。</p>
+      <p>2024 臺北地景公共藝術計劃「城市轍跡」揭幕儀式，由人米犬頁製作受邀於北門站臺北記憶倉庫前廣場編創開幕演出。</p>
+      <p>創作延續《虎刺梅》系列「隨地域變化而蛻變」的理念，透過麻繩與顏料結合舞蹈，象徵北門從古至今周圍人車往來留下的足跡。</p>
+      <p>肢體在空間中行走與編織，隨聲響交織過往與當下，呼應北門作為人流、物流與故事交匯的門戶，重新描繪城市的脈動與歷史紋理。</p>
     </div>
   </section>
-  <section class="media"><p class="label">Highlight</p><h2>精華影片</h2><div class="video"><iframe src="https://www.youtube.com/embed/RHzYZJt1Z8o" title="城市轍跡精華影片" allowfullscreen></iframe></div></section>
-  <section class="gallery">
-    <figure class="tall"><img src="../artist_cv_assets/drive_stage/stage_02.jpg" alt="人米犬頁製作作品照片"></figure>
-    <figure class="half"><img src="../artist_cv_assets/drive_stage/stage_03.jpg" alt="人米犬頁製作作品照片"></figure>
-    <figure class="half"><img src="../artist_cv_assets/drive_stage/stage_04.jpg" alt="人米犬頁製作作品照片"></figure>
+  <section class="media">
+    <p class="label">Credits</p>
+    <h2>演職人員</h2>
+    <div class="copy">
+      <p>主辦單位：臺北市政府文化局<br>執行單位：開物整合設計股份有限公司<br>揭幕演出協調：謝欣翰、莫凡<br>演出團隊：人米犬頁製作</p>
+      <p>編創、編導與舞蹈編排：王育羚<br>即興非語言歌唱、聲響演奏：陳思潔<br>舞者：游品萱、賴玟芳、王育羚<br>攝影：Jove Wong</p>
+      <p>演出時間與地點：2024.10.01（二）14:00，北門站－臺北記憶倉庫前廣場</p>
+    </div>
   </section>
 </body>
 </html>

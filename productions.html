@@ -31,6 +31,7 @@
     .section-head p { max-width:520px; margin:0; color:var(--muted); font-size:14px; line-height:1.7; }
     .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.8vw,28px); }
     .tile { position:relative; min-height:clamp(320px,32vw,520px); overflow:hidden; background:#111; border:1px solid rgba(245,241,234,.08); isolation:isolate; }
+    .tile.placeholder { background:radial-gradient(circle at 52% 35%,rgba(122,13,8,.48),transparent 36%),linear-gradient(135deg,#080808,#151515 58%,#050505); }
     .tile img { position:absolute; inset:0; opacity:.86; transition:transform .38s ease, opacity .38s ease, filter .38s ease; }
     .tile::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.72)); opacity:0; transition:opacity .24s ease; }
     .tile-title { position:absolute; z-index:1; inset:auto 0 0; padding:22px; color:#fff; opacity:0; transform:translateY(10px); transition:opacity .24s ease, transform .24s ease; }
@@ -38,6 +39,7 @@
     .tile-title span { display:block; margin-top:8px; color:rgba(245,241,234,.72); font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
     .tile:hover img { transform:scale(1.045); opacity:.96; filter:contrast(1.08); }
     .tile:hover::after,.tile:hover .tile-title { opacity:1; transform:translateY(0); }
+    .tile.placeholder::after,.tile.placeholder .tile-title { opacity:1; transform:none; }
     .tile.wide { grid-column:span 2; }
     .tile.tall { min-height:clamp(420px,42vw,680px); }
     .footer { margin-top:clamp(40px,8vw,120px); padding:clamp(52px,7vw,92px) clamp(18px,5vw,74px); background:radial-gradient(circle at 76% 100%,rgba(122,13,8,.82),transparent 42%),#03070b; border-top:1px solid var(--line); }
@@ -58,12 +60,11 @@
       <div class="hero-inner">
         <p class="kicker">Pudgala Body & Sound Production</p>
         <h1>Productions</h1>
-        <p>以劇場舞作為核心，延伸至現地製作、儀式肢體聲響與影像合作。此頁整理人米犬頁製作的主要作品與系列脈絡。</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-head"><div><p class="kicker">Selected Productions</p><h2>主要作品</h2></div><p>三個主要系列構成目前團隊最鮮明的創作路徑：繩與身體、神社記憶、花蟲與蛻變。</p></div>
+      <div class="section-head"><div><p class="kicker">Selected Productions</p><h2>主要作品</h2></div></div>
       <div class="grid">
         <a class="tile tall" href="works/beneath.html"><img src="artist_cv_assets/series_cards/beneath-card.jpg" alt="織繩界 Beneath"><span class="tile-title"><strong>織繩界</strong><span>Beneath / 2026</span></span></a>
         <a class="tile tall" href="works/tiger-luye.html"><img src="artist_cv_assets/production_media/tiger/tiger-luye-stage-01.jpg" alt="虎刺梅 x 鹿野神社 Crown of Thorns x Luye Shrine"><span class="tile-title"><strong>虎刺梅 x 鹿野神社</strong><span>Crown of Thorns x Luye Shrine / 2025</span></span></a>
@@ -72,11 +73,11 @@
     </section>
 
     <section class="section">
-      <div class="section-head"><div><p class="kicker">Additional Works</p><h2>其他作品</h2></div><p>整理團隊於公共空間、藝術村、儀式聲響與影像合作中的演出資料，呈現不同製作條件下的身體調度能力。</p></div>
+      <div class="section-head"><div><p class="kicker">Additional Works</p><h2>其他作品</h2></div></div>
       <div class="grid">
-        <a class="tile wide" href="works/wuxing-six-senses.html"><img src="artist_cv_assets/production_media/wuxing/wuxing-stage-01.jpg" alt="藝術 Fun 礁溪－舞行六識 Six Senses in Motion"><span class="tile-title"><strong>藝術 Fun 礁溪－舞行六識</strong><span>Six Senses in Motion / 2024</span></span></a>
+        <a class="tile wide placeholder" href="works/wuxing-six-senses.html"><span class="tile-title"><strong>藝術 Fun 礁溪－舞行六識</strong><span>Six Senses in Motion / 2024</span></span></a>
         <a class="tile" href="works/hongmei-opening.html"><img src="artist_cv_assets/production_media/hongmei/hongmei-stage-01.jpg" alt="鴻梅國際藝術村現地演出 Hongmei International Artist Village Site Performance"><span class="tile-title"><strong>鴻梅國際藝術村現地演出</strong><span>Hongmei International Artist Village Site Performance / 2025</span></span></a>
-        <a class="tile" href="works/city-traces.html"><img src="artist_cv_assets/drive_stage/stage_02.jpg" alt="城市轍跡 City Traces"><span class="tile-title"><strong>城市轍跡</strong><span>City Traces / 2024</span></span></a>
+        <a class="tile placeholder" href="works/city-traces.html"><span class="tile-title"><strong>城市轍跡</strong><span>City Traces / 2024</span></span></a>
         <a class="tile wide" href="works/medicine-buddha.html"><img src="artist_cv_assets/production_media/medicine/medicine-stage-01.jpg" alt="舞·藥師儀式肢體聲響劇場 Medicine Buddha Ritual Body-Sound Theatre"><span class="tile-title"><strong>舞·藥師儀式肢體聲響劇場</strong><span>Medicine Buddha Ritual Body-Sound Theatre / 2023</span></span></a>
       </div>
     </section>
