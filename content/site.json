@@ -7,7 +7,7 @@
   "hero": {
     "kicker": "Dance / Sound / Ritual / Site-specific creation",
     "title": "人米犬頁製作",
-    "description": "舞蹈是讓土地、聲音與記憶重新顯影的方法。人米犬頁製作以身體進入場域，在傳統與當代之間編織時間、空間與感知。",
+    "description": "",
     "image": "artist_cv_assets/drive_stage/stage_02.jpg",
     "meta": [
       {
@@ -43,7 +43,7 @@
       "跨域合作"
     ]
   },
-  "worksIntro": "焦點訊息與作品紀錄整理自團隊 CV。影片連結先放入已公開資料，後續可在後台補上 IG、售票、完整作品頁。",
+  "worksIntro": "",
   "works": [
     {
       "year": "2026",
@@ -95,7 +95,7 @@
       "page": ""
     }
   ],
-  "galleryIntro": "以下劇照皆屬《織繩界 Beneath》相關資料，選自你提供的 Drive 分類照片，作為首頁主視覺與作品視覺使用。",
+  "galleryIntro": "",
   "gallery": [
     {
       "src": "artist_cv_assets/drive_stage/stage_02.jpg",
@@ -146,24 +146,8 @@
       "alt": "人米犬頁製作劇照"
     }
   ],
-  "practiceIntro": "從場域採集、身體訓練、聲響與物件出發，讓作品在儀式感與當代劇場之間形成自己的路徑。",
-  "practice": [
-    {
-      "number": "01",
-      "title": "身體作為場域感知",
-      "description": "以身體讀取環境、歷史與文化痕跡，讓演出不只發生在空間中，也與空間共同生成。"
-    },
-    {
-      "number": "02",
-      "title": "儀式結構的當代轉譯",
-      "description": "從傳統與地方知識出發，透過編舞、聲響與秩序建立可被當代觀眾進入的感官形式。"
-    },
-    {
-      "number": "03",
-      "title": "低資源下的製作韌性",
-      "description": "能在小型團隊與有限預算中完成提案、排練、行政協調、演出執行與影像整理。"
-    }
-  ],
+  "practiceIntro": "",
+  "practice": [],
   "closing": {
     "heading": "演出、現地製作、工作坊與跨域合作洽詢。",
     "description": "歡迎與人米犬頁製作聯繫，討論劇場作品、公共藝術、節慶開幕、場域計畫、身體工作坊與合作提案。",

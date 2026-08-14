@@ -3,384 +3,605 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>人米犬頁製作｜網站後台</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="shortcut icon" href="./favicon.ico?v=8">
+  <link rel="icon" type="image/png" href="./favicon.png?v=8">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=8">
+  <title>網站後台｜人米犬頁製作</title>
   <style>
     :root {
-      --ink: #171717;
-      --paper: #f5f0e8;
-      --panel: #fffaf2;
-      --moss: #536b55;
-      --copper: #a6532f;
-      --muted: #6d6860;
-      --line: rgba(23, 23, 23, 0.14);
-      --danger: #b42318;
+      --bg: #03070b;
+      --panel: rgba(255, 255, 255, .045);
+      --panel-strong: rgba(255, 255, 255, .075);
+      --fg: #f5f1ea;
+      --muted: rgba(245, 241, 234, .62);
+      --soft: rgba(245, 241, 234, .36);
+      --line: rgba(245, 241, 234, .16);
+      --accent: #b5261e;
+      --ok: #8ac08a;
+      --warn: #e0b45a;
+      --danger: #ef6a5f;
+      --max: 1480px;
     }
 
     * { box-sizing: border-box; }
-
+    html { background: var(--bg); color: var(--fg); }
     body {
       margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
-      line-height: 1.5;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 18px clamp(18px, 4vw, 44px);
-      background: rgba(245, 240, 232, 0.92);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(18px);
-    }
-
-    h1, h2, h3, p { margin-top: 0; }
-
-    h1 {
-      margin-bottom: 2px;
-      font-size: clamp(24px, 4vw, 36px);
-      line-height: 1.1;
-    }
-
-    h2 {
-      margin-bottom: 16px;
-      font-size: 22px;
-    }
-
-    h3 {
-      margin-bottom: 10px;
-      color: var(--moss);
-      font-size: 15px;
+      min-height: 100svh;
+      background:
+        radial-gradient(circle at 66% 18%, rgba(145, 20, 14, .42), transparent 32%),
+        linear-gradient(180deg, #03070b 0%, #08090b 42%, #160303 100%);
+      font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      line-height: 1.55;
     }
 
     a { color: inherit; }
-
-    .muted { color: var(--muted); }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 24px;
-      width: min(1280px, 100%);
-      margin: 0 auto;
-      padding: 24px clamp(18px, 4vw, 44px) 56px;
-    }
-
-    nav {
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    .shell { width: min(var(--max), 100%); margin: 0 auto; padding: 28px clamp(16px, 4vw, 56px) 80px; }
+    .top {
       position: sticky;
-      top: 92px;
+      top: 0;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 22px;
+      min-height: 82px;
+      margin: 0 calc(clamp(16px, 4vw, 56px) * -1) 28px;
+      padding: 12px clamp(16px, 4vw, 56px);
+      border-bottom: 1px solid var(--line);
+      background: rgba(3, 7, 11, .82);
+      backdrop-filter: blur(18px);
+    }
+
+    .logo { width: 128px; height: 54px; object-fit: contain; object-position: left center; }
+    .top-title strong { display: block; font-size: 18px; line-height: 1.1; }
+    .top-title span { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .top-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: 10px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+      gap: clamp(18px, 4vw, 56px);
+      padding: clamp(28px, 6vw, 72px) 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.08; letter-spacing: 0; }
+    h1 { max-width: 860px; font-size: clamp(34px, 5vw, 76px); font-weight: 760; }
+    h2 { font-size: clamp(24px, 3vw, 40px); font-weight: 760; }
+    h3 { font-size: 17px; font-weight: 760; }
+    .lead { max-width: 780px; margin: 22px 0 0; color: rgba(245, 241, 234, .74); font-size: clamp(15px, 1.15vw, 18px); }
+    .notice {
       align-self: start;
-      display: grid;
-      gap: 8px;
-      padding: 14px;
-      background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 8px;
-    }
-
-    nav a {
-      padding: 9px 10px;
-      border-radius: 6px;
-      color: var(--muted);
+      background: rgba(255, 255, 255, .04);
+      padding: 18px;
+      color: rgba(245, 241, 234, .72);
       font-size: 14px;
-      text-decoration: none;
     }
+    .notice b { color: var(--fg); }
+    .notice p { margin: 0 0 12px; }
+    .notice p:last-child { margin-bottom: 0; }
 
-    nav a:hover { background: rgba(83, 107, 85, 0.1); color: var(--ink); }
-
-    main { display: grid; gap: 18px; }
-
-    section {
-      padding: 22px;
-      background: var(--panel);
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 22px; }
+    .tab {
       border: 1px solid var(--line);
-      border-radius: 8px;
-    }
-
-    label {
-      display: grid;
-      gap: 7px;
-      margin-bottom: 14px;
+      background: rgba(0, 0, 0, .16);
       color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
     }
+    .tab[aria-selected="true"] { background: var(--fg); color: #070707; border-color: var(--fg); }
+    .panel { display: none; }
+    .panel.is-active { display: block; }
 
+    .section {
+      display: grid;
+      grid-template-columns: minmax(220px, .34fr) minmax(0, 1fr);
+      gap: clamp(18px, 4vw, 56px);
+      padding: clamp(24px, 4vw, 52px) 0;
+      border-top: 1px solid var(--line);
+    }
+    .section-copy p { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: clamp(16px, 2vw, 24px);
+    }
+    .stack { display: grid; gap: 16px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    label { display: grid; gap: 7px; color: var(--muted); font-size: 12px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
     input, textarea, select {
       width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 10px 11px;
-      background: #fff;
-      color: var(--ink);
-      font: inherit;
-      font-size: 15px;
+      border: 1px solid rgba(245, 241, 234, .18);
+      border-radius: 0;
+      background: rgba(0, 0, 0, .34);
+      color: var(--fg);
+      padding: 12px 12px;
+      outline: none;
     }
+    textarea { min-height: 110px; resize: vertical; line-height: 1.62; }
+    input:focus, textarea:focus, select:focus { border-color: rgba(245, 241, 234, .72); }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 
-    textarea {
-      min-height: 92px;
-      resize: vertical;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: 0.45fr 1fr 1.2fr;
-      gap: 10px;
-    }
-
-    .item {
-      margin-bottom: 12px;
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.58);
-    }
-
-    .toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .button {
+      display: inline-flex;
       align-items: center;
-    }
-
-    button {
-      border: 1px solid var(--line);
-      border-radius: 999px;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid currentColor;
+      background: transparent;
+      color: var(--fg);
+      min-height: 42px;
       padding: 10px 14px;
-      background: #fff;
-      color: var(--ink);
-      font: inherit;
-      font-size: 14px;
-      cursor: pointer;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
     }
+    .button.primary { background: var(--fg); color: #070707; border-color: var(--fg); }
+    .button.accent { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .button.ghost { color: var(--muted); }
+    .button.danger { color: var(--danger); }
+    .button:disabled { opacity: .46; cursor: not-allowed; }
+    .row-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 
-    button.primary {
-      border-color: var(--ink);
-      background: var(--ink);
-      color: #fff;
+    .repeat-list { display: grid; gap: 14px; }
+    .repeat-item {
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, .2);
+      padding: 16px;
     }
-
-    button.soft {
-      background: rgba(83, 107, 85, 0.1);
-      color: var(--moss);
+    .repeat-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 14px;
     }
-
-    button.danger {
-      color: var(--danger);
+    .repeat-head strong { font-size: 14px; }
+    .mini-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .mini {
+      min-height: 32px;
+      padding: 6px 9px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .04);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
     }
+    .mini:hover { color: var(--fg); border-color: rgba(245, 241, 234, .4); }
 
     .status {
-      min-height: 24px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .image-row {
-      display: grid;
-      grid-template-columns: 1fr 150px;
-      gap: 12px;
-      align-items: end;
-    }
-
-    .preview {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
+      min-height: 46px;
       border: 1px solid var(--line);
-      border-radius: 6px;
-      background: #eee;
-    }
-
-    .preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .token-box {
-      border-color: rgba(166, 83, 47, 0.35);
-      background: #fff7ed;
-    }
-
-    .small {
-      font-size: 13px;
+      background: rgba(0, 0, 0, .26);
+      padding: 12px;
       color: var(--muted);
+      font-size: 13px;
+      white-space: pre-wrap;
     }
+    .status.ok { color: var(--ok); }
+    .status.warn { color: var(--warn); }
+    .status.error { color: var(--danger); }
 
-    @media (max-width: 900px) {
-      .layout { grid-template-columns: 1fr; }
-      nav { position: static; }
-      .grid-2, .grid-3, .image-row { grid-template-columns: 1fr; }
+    .asset-preview {
+      overflow: hidden;
+      min-height: 220px;
+      border: 1px solid var(--line);
+      background: #050505;
+      display: grid;
+      place-items: center;
+    }
+    .asset-preview img { width: 100%; height: 100%; max-height: 360px; object-fit: contain; }
+    .asset-preview span { color: var(--soft); font-size: 13px; }
+
+    .raw-json { min-height: 520px; font-size: 12px; tab-size: 2; }
+    .help-list { margin: 14px 0 0; padding-left: 1.1em; color: var(--muted); font-size: 14px; }
+    .help-list li { margin: 8px 0; }
+
+    @media (max-width: 920px) {
+      .top { grid-template-columns: 1fr; align-items: start; }
+      .top-actions { justify-content: start; }
+      .hero, .section { grid-template-columns: 1fr; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div>
-      <h1>網站後台</h1>
-      <p class="muted">修改文字與照片，儲存後會 commit 到 GitHub，Vercel 會自動重新部署。</p>
+  <header class="top">
+    <a href="./index.html" aria-label="回到人米犬頁製作首頁">
+      <img class="logo" src="./artist_cv_assets/logos/pudgala-logo.png" alt="人米犬頁製作">
+    </a>
+    <div class="top-title">
+      <strong>網站後台</strong>
+      <span>Pudgala Body & Sound Production</span>
     </div>
-    <div class="toolbar">
-      <a href="index.html">回前台</a>
-      <button class="primary" id="saveButton">儲存到 GitHub</button>
+    <div class="top-actions">
+      <a class="button ghost" href="./index.html">View Site</a>
+      <a class="button ghost" href="./productions.html">Productions</a>
+      <button class="button primary" type="button" id="downloadJsonTop">Download JSON</button>
     </div>
   </header>
 
-  <div class="layout">
-    <nav>
-      <a href="#login">GitHub Token</a>
-      <a href="#hero">首頁主視覺</a>
-      <a href="#profile">藝術家介紹</a>
-      <a href="#works">作品年表</a>
-      <a href="#gallery">作品照片</a>
-      <a href="#practice">創作方法</a>
-      <a href="#closing">聯絡區</a>
-    </nav>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Private editing page</p>
+        <h1>人米網站內容管理</h1>
+        <p class="lead">這裡用來整理網站文字、作品資料、圖片路徑與素材上傳。後台不會出現在公開導覽列；真正能寫回網站的是你的 GitHub token，所以 token 不要貼到聊天或任何文件裡。</p>
+      </div>
+      <aside class="notice">
+        <p><b>現在版本：</b>先管理 `content/site.json` 與圖片素材。已串接這份資料的頁面會跟著更新；還沒串接的舊 HTML 頁面，需要我再逐頁接上。</p>
+        <p><b>安全提醒：</b>Token 只在這個瀏覽器送到 GitHub API，不會寫進網站檔案。用完可按「清除 token」。</p>
+      </aside>
+    </section>
 
-    <main>
-      <section id="login" class="token-box">
-        <h2>GitHub Token</h2>
-        <p class="small">請使用 Fine-grained token，repo 選 <b>e.miliiproduction</b>，權限 <b>Contents: Read and write</b>。Token 只保存在這個瀏覽器頁面裡，不會寫進網站檔案。</p>
-        <label>Token
-          <input id="token" type="password" autocomplete="off" placeholder="github_pat_...">
-        </label>
-        <p id="status" class="status"></p>
-      </section>
+    <div class="tabs" role="tablist" aria-label="後台分頁">
+      <button class="tab" type="button" data-panel="basic" aria-selected="true">Basic</button>
+      <button class="tab" type="button" data-panel="works" aria-selected="false">Productions</button>
+      <button class="tab" type="button" data-panel="media" aria-selected="false">Images</button>
+      <button class="tab" type="button" data-panel="publish" aria-selected="false">Publish</button>
+      <button class="tab" type="button" data-panel="raw" aria-selected="false">Raw JSON</button>
+    </div>
 
-      <section id="hero">
-        <h2>首頁主視覺</h2>
-        <div class="grid-2">
-          <label>網站標題
-            <input data-path="site.title">
-          </label>
-          <label>品牌名稱
-            <input data-path="site.brand">
-          </label>
+    <section id="panel-basic" class="panel is-active">
+      <div class="section">
+        <div class="section-copy">
+          <p class="eyebrow">Site</p>
+          <h2>品牌與首頁</h2>
+          <p>修改網站名稱、首頁主視覺文字與團隊介紹。圖片欄位填網站內的相對路徑，例如 `artist_cv_assets/production_media/beneath/beneath-stage-01.jpg`。</p>
         </div>
-        <label>英文／副標
-          <input data-path="site.subtitle">
-        </label>
-        <label>身份小標
-          <input data-path="hero.kicker">
-        </label>
-        <label>主標題（可用 &lt;br&gt; 換行）
-          <input data-path="hero.title">
-        </label>
-        <label>主敘述
-          <textarea data-path="hero.description"></textarea>
-        </label>
-        <div class="image-row">
-          <label>主視覺圖片路徑
-            <input data-path="hero.image">
-          </label>
-          <div class="preview"><img data-preview="hero.image" alt=""></div>
+        <div class="card stack">
+          <div class="grid-2">
+            <label>網站標題<input id="siteTitle"></label>
+            <label>品牌名稱<input id="siteBrand"></label>
+          </div>
+          <label>英文副標<input id="siteSubtitle"></label>
+          <div class="grid-2">
+            <label>Hero Kicker<input id="heroKicker"></label>
+            <label>Hero Title<input id="heroTitle"></label>
+          </div>
+          <label>Hero Image<input id="heroImage" class="mono"></label>
+          <label>Hero Description<textarea id="heroDescription"></textarea></label>
         </div>
-      </section>
+      </div>
 
-      <section id="profile">
-        <h2>藝術家介紹</h2>
-        <div id="profileParagraphs"></div>
-        <button class="soft" data-add="profileParagraph">新增介紹段落</button>
-        <h3>關鍵字</h3>
-        <label>用逗號分隔
-          <input data-array="profile.chips">
-        </label>
-        <h3>介紹照片</h3>
-        <div id="profileImages"></div>
-        <button class="soft" data-add="profileImage">新增介紹照片</button>
-      </section>
+      <div class="section">
+        <div class="section-copy">
+          <p class="eyebrow">About</p>
+          <h2>團隊介紹</h2>
+          <p>一段一格，後台會存成段落。請保留乾淨、正式、適合品牌網站的語氣。</p>
+        </div>
+        <div class="card stack">
+          <label>介紹段落<textarea id="profileParagraphs"></textarea></label>
+          <label>關鍵詞 / Chips<input id="profileChips" placeholder="以逗號分隔"></label>
+        </div>
+      </div>
+    </section>
 
-      <section id="works">
-        <h2>作品年表</h2>
-        <label>區塊說明
-          <textarea data-path="worksIntro"></textarea>
-        </label>
-        <div id="worksList"></div>
-        <button class="soft" data-add="work">新增作品</button>
-      </section>
+    <section id="panel-works" class="panel">
+      <div class="section">
+        <div class="section-copy">
+          <p class="eyebrow">Productions</p>
+          <h2>作品列表</h2>
+          <p>用來管理作品年份、作品名稱、頁面路徑和對外連結。之後作品集總頁可完全改成讀這裡的資料。</p>
+          <div class="row-actions">
+            <button class="button accent" type="button" id="addWork">Add Work</button>
+          </div>
+        </div>
+        <div class="repeat-list" id="worksList"></div>
+      </div>
+    </section>
 
-      <section id="gallery">
-        <h2>作品照片</h2>
-        <label>區塊說明
-          <textarea data-path="galleryIntro"></textarea>
-        </label>
-        <div id="galleryList"></div>
-        <button class="soft" data-add="gallery">新增照片</button>
-      </section>
+    <section id="panel-media" class="panel">
+      <div class="section">
+        <div class="section-copy">
+          <p class="eyebrow">Images</p>
+          <h2>首頁劇照資料</h2>
+          <p>管理 `site.json` 裡的圖片清單。這裡改的是圖片路徑與說明，不會自動裁切圖片。</p>
+          <div class="row-actions">
+            <button class="button accent" type="button" id="addGallery">Add Image</button>
+          </div>
+        </div>
+        <div class="repeat-list" id="galleryList"></div>
+      </div>
 
-      <section id="practice">
-        <h2>創作方法</h2>
-        <label>區塊說明
-          <textarea data-path="practiceIntro"></textarea>
-        </label>
-        <div id="practiceList"></div>
-        <button class="soft" data-add="practice">新增方法</button>
-      </section>
+      <div class="section">
+        <div class="section-copy">
+          <p class="eyebrow">Upload</p>
+          <h2>上傳圖片到 GitHub</h2>
+          <p>選擇圖片後，填入你想放在網站裡的路徑，再用 token 上傳。上傳成功後，把路徑貼到作品或圖片欄位。</p>
+        </div>
+        <div class="card stack">
+          <div class="grid-2">
+            <label>圖片檔案<input type="file" id="assetFile" accept="image/*"></label>
+            <label>網站內路徑<input id="assetPath" class="mono" placeholder="artist_cv_assets/production_media/new/image.jpg"></label>
+          </div>
+          <div class="asset-preview" id="assetPreview"><span>尚未選擇圖片</span></div>
+          <div class="row-actions">
+            <button class="button primary" type="button" id="uploadAsset">Upload Image</button>
+          </div>
+          <div class="status" id="assetStatus">圖片會上傳到 GitHub repo，Vercel 部署完成後才會在公開網站顯示。</div>
+        </div>
+      </div>
+    </section>
 
-      <section id="closing">
-        <h2>聯絡區</h2>
-        <label>大標
-          <textarea data-path="closing.heading"></textarea>
-        </label>
-        <label>補充說明
-          <textarea data-path="closing.description"></textarea>
-        </label>
-        <h3>QR Code 圖片</h3>
-        <div id="qrList"></div>
-        <button class="soft" data-add="qr">新增 QR 圖片</button>
-      </section>
-    </main>
-  </div>
+    <section id="panel-publish" class="panel">
+      <div class="section">
+        <div class="section-copy">
+          <p class="eyebrow">Data</p>
+          <h2>讀取與匯出</h2>
+          <p>如果你用 `file:///` 開啟後台，瀏覽器可能讀不到 `site.json`，可以手動選檔。使用本機伺服器或正式網址時會自動讀取。</p>
+        </div>
+        <div class="card stack">
+          <div class="grid-2">
+            <label>手動載入 site.json<input type="file" id="jsonFile" accept=".json,application/json"></label>
+            <label>Commit message<input id="commitMessage" value="Update website content"></label>
+          </div>
+          <div class="row-actions">
+            <button class="button" type="button" id="applyForm">Apply Form To JSON</button>
+            <button class="button" type="button" id="downloadJson">Download site.json</button>
+          </div>
+          <div class="status" id="loadStatus">正在讀取 content/site.json...</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-copy">
+          <p class="eyebrow">GitHub</p>
+          <h2>發布更新</h2>
+          <p>貼上 fine-grained GitHub token。權限需要 repo `e.miliiproduction`，Contents: Read and write，Metadata: Read-only。</p>
+        </div>
+        <div class="card stack">
+          <label>GitHub Token<input id="githubToken" class="mono" type="password" autocomplete="off" placeholder="貼在這裡，不要貼聊天"></label>
+          <div class="grid-3">
+            <label>Owner<input id="repoOwner" class="mono" value="emiliiproduction-glitch"></label>
+            <label>Repo<input id="repoName" class="mono" value="e.miliiproduction"></label>
+            <label>Branch<input id="repoBranch" class="mono" value="main"></label>
+          </div>
+          <div class="row-actions">
+            <button class="button primary" type="button" id="saveToken">Save Token In This Browser</button>
+            <button class="button ghost" type="button" id="clearToken">Clear Token</button>
+            <button class="button accent" type="button" id="pushJson">Push site.json</button>
+          </div>
+          <div class="status" id="publishStatus">尚未發布。</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-raw" class="panel">
+      <div class="section">
+        <div class="section-copy">
+          <p class="eyebrow">Advanced</p>
+          <h2>JSON 原始資料</h2>
+          <p>適合我或熟悉 JSON 的人快速檢查。你平常可以不用改這裡。</p>
+          <ul class="help-list">
+            <li>按「Apply JSON To Form」會把右邊 JSON 套回表單。</li>
+            <li>JSON 格式錯誤時不能推送。</li>
+          </ul>
+          <div class="row-actions">
+            <button class="button" type="button" id="applyJson">Apply JSON To Form</button>
+            <button class="button" type="button" id="formatJson">Format JSON</button>
+          </div>
+        </div>
+        <div class="card">
+          <textarea id="rawJson" class="raw-json mono" spellcheck="false"></textarea>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script>
-    const REPO = "emiliiproduction-glitch/e.miliiproduction";
-    const BRANCH = "main";
-    const CONTENT_PATH = "content/site.json";
-    let content = null;
-    let contentSha = null;
-    const uploads = new Map();
-
-    const $ = (selector) => document.querySelector(selector);
-    const status = (message, isError = false) => {
-      const node = $("#status");
-      node.textContent = message;
-      node.style.color = isError ? "var(--danger)" : "var(--muted)";
+    const defaultData = {
+      site: { title: "人米犬頁製作｜Pudgala Body & Sound Production", brand: "人米犬頁製作", subtitle: "Pudgala Body & Sound Production" },
+      hero: { kicker: "", title: "人米犬頁製作", description: "", image: "" },
+      profile: { paragraphs: [], chips: [] },
+      works: [],
+      gallery: []
     };
 
-    const escapeHtml = (value = "") => String(value)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;");
+    let siteData = structuredClone(defaultData);
+    let selectedAssetFile = null;
 
-    function getValue(path) {
-      return path.split(".").reduce((value, key) => value && value[key], content);
+    const $ = (selector) => document.querySelector(selector);
+    const $$ = (selector) => Array.from(document.querySelectorAll(selector));
+
+    function setStatus(id, message, type = "") {
+      const el = $(id);
+      el.textContent = message;
+      el.className = `status ${type}`.trim();
     }
 
-    function setValue(path, value) {
-      const keys = path.split(".");
-      let target = content;
-      keys.slice(0, -1).forEach((key) => target = target[key]);
-      target[keys.at(-1)] = value;
+    function ensureShape(data) {
+      return {
+        ...structuredClone(defaultData),
+        ...data,
+        site: { ...defaultData.site, ...(data.site || {}) },
+        hero: { ...defaultData.hero, ...(data.hero || {}) },
+        profile: { ...defaultData.profile, ...(data.profile || {}) },
+        works: Array.isArray(data.works) ? data.works : [],
+        gallery: Array.isArray(data.gallery) ? data.gallery : []
+      };
     }
 
-    async function github(path, options = {}) {
-      const token = $("#token").value.trim();
-      if (!token) throw new Error("請先貼上 GitHub token");
-      const response = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+    function fillForm() {
+      siteData = ensureShape(siteData);
+      $("#siteTitle").value = siteData.site.title || "";
+      $("#siteBrand").value = siteData.site.brand || "";
+      $("#siteSubtitle").value = siteData.site.subtitle || "";
+      $("#heroKicker").value = siteData.hero.kicker || "";
+      $("#heroTitle").value = siteData.hero.title || "";
+      $("#heroDescription").value = siteData.hero.description || "";
+      $("#heroImage").value = siteData.hero.image || "";
+      $("#profileParagraphs").value = (siteData.profile.paragraphs || []).join("\\n\\n");
+      $("#profileChips").value = (siteData.profile.chips || []).join("，");
+      renderWorks();
+      renderGallery();
+      syncRaw();
+    }
+
+    function collectForm() {
+      siteData.site.title = $("#siteTitle").value.trim();
+      siteData.site.brand = $("#siteBrand").value.trim();
+      siteData.site.subtitle = $("#siteSubtitle").value.trim();
+      siteData.hero.kicker = $("#heroKicker").value.trim();
+      siteData.hero.title = $("#heroTitle").value.trim();
+      siteData.hero.description = $("#heroDescription").value.trim();
+      siteData.hero.image = $("#heroImage").value.trim();
+      siteData.profile.paragraphs = $("#profileParagraphs").value.split(/\\n\\s*\\n/).map((item) => item.trim()).filter(Boolean);
+      siteData.profile.chips = $("#profileChips").value.split(/[，,]/).map((item) => item.trim()).filter(Boolean);
+      siteData.works = collectRepeat("#worksList", ["year", "title", "note", "link", "page"]);
+      siteData.gallery = collectRepeat("#galleryList", ["src", "caption", "span", "alt"]);
+      syncRaw();
+    }
+
+    function collectRepeat(rootSelector, fields) {
+      return $$(rootSelector + " .repeat-item").map((item) => {
+        const row = {};
+        fields.forEach((field) => {
+          row[field] = item.querySelector(`[data-field="${field}"]`)?.value.trim() || "";
+        });
+        return row;
+      });
+    }
+
+    function syncRaw() {
+      $("#rawJson").value = JSON.stringify(siteData, null, 2);
+    }
+
+    function renderWorks() {
+      const list = $("#worksList");
+      list.innerHTML = "";
+      siteData.works.forEach((work, index) => {
+        list.appendChild(repeatItem("作品", index, [
+          ["year", "年份", work.year || ""],
+          ["title", "作品名稱", work.title || ""],
+          ["note", "簡短說明", work.note || "", "textarea"],
+          ["page", "作品頁路徑", work.page || ""],
+          ["link", "外部連結", work.link || ""]
+        ], siteData.works, renderWorks));
+      });
+    }
+
+    function renderGallery() {
+      const list = $("#galleryList");
+      list.innerHTML = "";
+      siteData.gallery.forEach((image, index) => {
+        list.appendChild(repeatItem("圖片", index, [
+          ["src", "圖片路徑", image.src || ""],
+          ["caption", "Caption", image.caption || ""],
+          ["alt", "Alt 文字", image.alt || ""],
+          ["span", "版型", image.span || ""]
+        ], siteData.gallery, renderGallery));
+      });
+    }
+
+    function repeatItem(label, index, fields, array, rerender) {
+      const article = document.createElement("article");
+      article.className = "repeat-item";
+      const fieldMarkup = fields.map(([field, fieldLabel, value, type]) => {
+        if (type === "textarea") {
+          return `<label>${fieldLabel}<textarea data-field="${field}">${escapeHtml(value)}</textarea></label>`;
+        }
+        return `<label>${fieldLabel}<input data-field="${field}" class="${field.includes("page") || field.includes("link") || field === "src" ? "mono" : ""}" value="${escapeAttr(value)}"></label>`;
+      }).join("");
+
+      article.innerHTML = `
+        <div class="repeat-head">
+          <strong>${label} ${index + 1}</strong>
+          <div class="mini-actions">
+            <button class="mini" type="button" data-action="up">Up</button>
+            <button class="mini" type="button" data-action="down">Down</button>
+            <button class="mini" type="button" data-action="duplicate">Duplicate</button>
+            <button class="mini" type="button" data-action="delete">Delete</button>
+          </div>
+        </div>
+        <div class="stack">${fieldMarkup}</div>
+      `;
+
+      article.querySelector('[data-action="up"]').addEventListener("click", () => {
+        if (index === 0) return;
+        collectForm();
+        [array[index - 1], array[index]] = [array[index], array[index - 1]];
+        rerender();
+        syncRaw();
+      });
+      article.querySelector('[data-action="down"]').addEventListener("click", () => {
+        if (index >= array.length - 1) return;
+        collectForm();
+        [array[index + 1], array[index]] = [array[index], array[index + 1]];
+        rerender();
+        syncRaw();
+      });
+      article.querySelector('[data-action="duplicate"]').addEventListener("click", () => {
+        collectForm();
+        array.splice(index + 1, 0, structuredClone(array[index]));
+        rerender();
+        syncRaw();
+      });
+      article.querySelector('[data-action="delete"]').addEventListener("click", () => {
+        collectForm();
+        array.splice(index, 1);
+        rerender();
+        syncRaw();
+      });
+      return article;
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+      }[char]));
+    }
+
+    function escapeAttr(value) {
+      return escapeHtml(value).replace(/`/g, "&#096;");
+    }
+
+    function utf8ToBase64(text) {
+      const bytes = new TextEncoder().encode(text);
+      let binary = "";
+      bytes.forEach((byte) => binary += String.fromCharCode(byte));
+      return btoa(binary);
+    }
+
+    function arrayBufferToBase64(buffer) {
+      const bytes = new Uint8Array(buffer);
+      let binary = "";
+      bytes.forEach((byte) => binary += String.fromCharCode(byte));
+      return btoa(binary);
+    }
+
+    function repoConfig() {
+      return {
+        owner: $("#repoOwner").value.trim(),
+        repo: $("#repoName").value.trim(),
+        branch: $("#repoBranch").value.trim() || "main",
+        token: $("#githubToken").value.trim()
+      };
+    }
+
+    async function githubRequest(path, options = {}) {
+      const { owner, repo, token } = repoConfig();
+      if (!token) throw new Error("請先貼上 GitHub token。");
+      const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
         ...options,
         headers: {
           "Accept": "application/vnd.github+json",
@@ -390,251 +611,189 @@
         }
       });
       if (!response.ok) {
-        const text = await response.text();
-        throw new Error(`${response.status} ${response.statusText}: ${text}`);
+        const detail = await response.text();
+        throw new Error(`GitHub API error ${response.status}: ${detail}`);
       }
       return response.json();
     }
 
-    function bindScalarFields() {
-      document.querySelectorAll("[data-path]").forEach((input) => {
-        const value = getValue(input.dataset.path);
-        input.value = value ?? "";
-        input.oninput = () => {
-          setValue(input.dataset.path, input.value);
-          updatePreviews();
-        };
-      });
-      document.querySelectorAll("[data-array]").forEach((input) => {
-        const value = getValue(input.dataset.array);
-        input.value = Array.isArray(value) ? value.join("，") : "";
-        input.oninput = () => {
-          setValue(input.dataset.array, input.value.split(/[，,]/).map((item) => item.trim()).filter(Boolean));
-        };
-      });
-    }
-
-    function imageEditor(path, value, index, group) {
-      return `
-        <div class="item" data-group="${group}" data-index="${index}">
-          <div class="image-row">
-            <label>圖片路徑
-              <input data-image-path="${path}" value="${escapeHtml(value || "")}">
-            </label>
-            <div class="preview"><img src="${escapeHtml(value || "")}" alt=""></div>
-          </div>
-          <label>上傳新照片
-            <input type="file" accept="image/*" data-upload="${path}">
-          </label>
-          <button class="danger" data-remove="${group}" data-index="${index}">移除</button>
-        </div>
-      `;
-    }
-
-    function renderRepeaters() {
-      $("#profileParagraphs").innerHTML = (content.profile.paragraphs || []).map((text, index) => `
-        <div class="item">
-          <label>介紹段落 ${index + 1}
-            <textarea data-list="profile.paragraphs" data-index="${index}">${escapeHtml(text)}</textarea>
-          </label>
-          <button class="danger" data-remove="profileParagraph" data-index="${index}">移除</button>
-        </div>
-      `).join("");
-
-      $("#profileImages").innerHTML = (content.profile.images || []).map((src, index) =>
-        imageEditor(`profile.images.${index}`, src, index, "profileImage")
-      ).join("");
-
-      $("#worksList").innerHTML = (content.works || []).map((item, index) => `
-        <div class="item">
-          <div class="grid-3">
-            <label>年份<input data-object="works" data-index="${index}" data-key="year" value="${escapeHtml(item.year)}"></label>
-            <label>作品<input data-object="works" data-index="${index}" data-key="title" value="${escapeHtml(item.title)}"></label>
-            <label>說明<input data-object="works" data-index="${index}" data-key="note" value="${escapeHtml(item.note)}"></label>
-          </div>
-          <button class="danger" data-remove="work" data-index="${index}">移除</button>
-        </div>
-      `).join("");
-
-      $("#galleryList").innerHTML = (content.gallery || []).map((item, index) => `
-        <div class="item">
-          <div class="grid-2">
-            <label>照片標題<input data-object="gallery" data-index="${index}" data-key="caption" value="${escapeHtml(item.caption)}"></label>
-            <label>版面尺寸
-              <select data-object="gallery" data-index="${index}" data-key="span">
-                ${["span-8", "span-6", "span-4", "span-3"].map((value) => `<option value="${value}" ${item.span === value ? "selected" : ""}>${value}</option>`).join("")}
-              </select>
-            </label>
-          </div>
-          ${imageEditor(`gallery.${index}.src`, item.src, index, "gallery")}
-        </div>
-      `).join("");
-
-      $("#practiceList").innerHTML = (content.practice || []).map((item, index) => `
-        <div class="item">
-          <div class="grid-3">
-            <label>編號<input data-object="practice" data-index="${index}" data-key="number" value="${escapeHtml(item.number)}"></label>
-            <label>標題<input data-object="practice" data-index="${index}" data-key="title" value="${escapeHtml(item.title)}"></label>
-            <label>說明<input data-object="practice" data-index="${index}" data-key="description" value="${escapeHtml(item.description)}"></label>
-          </div>
-          <button class="danger" data-remove="practice" data-index="${index}">移除</button>
-        </div>
-      `).join("");
-
-      $("#qrList").innerHTML = (content.closing.qr || []).map((src, index) =>
-        imageEditor(`closing.qr.${index}`, src, index, "qr")
-      ).join("");
-
-      bindRepeaterEvents();
-      updatePreviews();
-    }
-
-    function bindRepeaterEvents() {
-      document.querySelectorAll("[data-list]").forEach((input) => {
-        input.oninput = () => {
-          const list = getValue(input.dataset.list);
-          list[Number(input.dataset.index)] = input.value;
-        };
-      });
-
-      document.querySelectorAll("[data-object]").forEach((input) => {
-        input.oninput = input.onchange = () => {
-          const list = content[input.dataset.object];
-          list[Number(input.dataset.index)][input.dataset.key] = input.value;
-        };
-      });
-
-      document.querySelectorAll("[data-image-path]").forEach((input) => {
-        input.oninput = () => {
-          setValue(input.dataset.imagePath, input.value);
-          updatePreviews();
-        };
-      });
-
-      document.querySelectorAll("[data-upload]").forEach((input) => {
-        input.onchange = async () => {
-          const file = input.files?.[0];
-          if (!file) return;
-          const ext = file.name.split(".").pop().toLowerCase().replace(/[^a-z0-9]/g, "") || "jpg";
-          const path = `artist_cv_assets/upload_${Date.now()}_${Math.random().toString(16).slice(2)}.${ext}`;
-          uploads.set(path, file);
-          setValue(input.dataset.upload, path);
-          renderRepeaters();
-          bindScalarFields();
-        };
-      });
-
-      document.querySelectorAll("[data-remove]").forEach((button) => {
-        button.onclick = () => {
-          const index = Number(button.dataset.index);
-          const type = button.dataset.remove;
-          if (type === "profileParagraph") content.profile.paragraphs.splice(index, 1);
-          if (type === "profileImage") content.profile.images.splice(index, 1);
-          if (type === "work") content.works.splice(index, 1);
-          if (type === "gallery") content.gallery.splice(index, 1);
-          if (type === "practice") content.practice.splice(index, 1);
-          if (type === "qr") content.closing.qr.splice(index, 1);
-          render();
-        };
-      });
-    }
-
-    function updatePreviews() {
-      document.querySelectorAll("[data-preview]").forEach((img) => {
-        const value = getValue(img.dataset.preview);
-        if (value) img.src = value;
-      });
-      document.querySelectorAll("[data-image-path]").forEach((input) => {
-        const preview = input.closest(".item, section").querySelector(".preview img");
-        if (preview) preview.src = input.value;
-      });
-    }
-
-    function render() {
-      bindScalarFields();
-      renderRepeaters();
-    }
-
-    async function loadContent() {
-      status("讀取 GitHub 內容中...");
-      const token = $("#token").value.trim();
-      if (token) {
-        const file = await github(CONTENT_PATH + `?ref=${BRANCH}`);
-        contentSha = file.sha;
-        content = JSON.parse(decodeURIComponent(escape(atob(file.content.replace(/\n/g, "")))));
-      } else {
-        const response = await fetch(CONTENT_PATH + "?ts=" + Date.now());
-        content = await response.json();
-      }
-      render();
-      status(token ? "已從 GitHub 讀取，可以編輯。" : "已載入預覽。貼上 token 後才能儲存。");
-    }
-
-    async function fileToBase64(file) {
-      const buffer = await file.arrayBuffer();
-      let binary = "";
-      const bytes = new Uint8Array(buffer);
-      for (const byte of bytes) binary += String.fromCharCode(byte);
-      return btoa(binary);
-    }
-
-    async function uploadPendingImages() {
-      for (const [path, file] of uploads.entries()) {
-        status(`上傳照片：${file.name}`);
-        await github(path, {
-          method: "PUT",
-          body: JSON.stringify({
-            message: `Upload ${file.name}`,
-            content: await fileToBase64(file),
-            branch: BRANCH
-          })
-        });
-      }
-      uploads.clear();
-    }
-
-    async function saveContent() {
+    async function putGithubFile(path, contentBase64, message) {
+      const { branch } = repoConfig();
+      let sha = undefined;
       try {
-        status("準備儲存...");
-        if (!contentSha) {
-          const file = await github(CONTENT_PATH + `?ref=${BRANCH}`);
-          contentSha = file.sha;
-        }
-        await uploadPendingImages();
-        const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2) + "\n")));
-        const result = await github(CONTENT_PATH, {
-          method: "PUT",
-          body: JSON.stringify({
-            message: "Update site content from admin",
-            content: encoded,
-            sha: contentSha,
-            branch: BRANCH
-          })
-        });
-        contentSha = result.content.sha;
-        status("已儲存到 GitHub。Vercel 會自動重新部署，通常等 1-3 分鐘。");
+        const existing = await githubRequest(`${encodeURIComponentPath(path)}?ref=${encodeURIComponent(branch)}`);
+        sha = existing.sha;
       } catch (error) {
-        console.error(error);
-        status(error.message, true);
+        if (!String(error.message).includes("404")) throw error;
+      }
+      return githubRequest(encodeURIComponentPath(path), {
+        method: "PUT",
+        body: JSON.stringify({ message, content: contentBase64, branch, sha })
+      });
+    }
+
+    function encodeURIComponentPath(path) {
+      return path.split("/").map(encodeURIComponent).join("/");
+    }
+
+    async function loadDefaultJson() {
+      try {
+        const response = await fetch(`./content/site.json?ts=${Date.now()}`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        siteData = ensureShape(await response.json());
+        fillForm();
+        setStatus("#loadStatus", "已讀取 content/site.json。", "ok");
+      } catch (error) {
+        siteData = structuredClone(defaultData);
+        fillForm();
+        setStatus("#loadStatus", "目前無法自動讀取 content/site.json。若你用 file:/// 開啟，請在這裡手動選擇 site.json，或改用本機伺服器開啟 admin.html。", "warn");
       }
     }
 
-    document.querySelectorAll("[data-add]").forEach((button) => {
-      button.onclick = () => {
-        const type = button.dataset.add;
-        if (type === "profileParagraph") content.profile.paragraphs.push("新的介紹段落");
-        if (type === "profileImage") content.profile.images.push("artist_cv_assets/pdf2_p12_01.png");
-        if (type === "work") content.works.push({ year: "2026", title: "新作品", note: "說明" });
-        if (type === "gallery") content.gallery.push({ src: "artist_cv_assets/pdf2_p03_01.png", caption: "新照片", span: "span-4", alt: "作品照片" });
-        if (type === "practice") content.practice.push({ number: "04", title: "新的方法", description: "說明文字" });
-        if (type === "qr") content.closing.qr.push("artist_cv_assets/pdf2_p01_02.png");
-        render();
-      };
+    function downloadJson() {
+      collectForm();
+      const blob = new Blob([JSON.stringify(siteData, null, 2) + "\\n"], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "site.json";
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    async function pushJson() {
+      try {
+        collectForm();
+        $("#pushJson").disabled = true;
+        setStatus("#publishStatus", "正在推送 content/site.json 到 GitHub...", "warn");
+        const content = JSON.stringify(siteData, null, 2) + "\\n";
+        const result = await putGithubFile("content/site.json", utf8ToBase64(content), $("#commitMessage").value.trim() || "Update website content");
+        setStatus("#publishStatus", `已推送成功。Commit: ${result.commit?.sha || "完成"}\\nVercel 會開始自動部署，通常等一下刷新公開網站即可。`, "ok");
+      } catch (error) {
+        setStatus("#publishStatus", error.message, "error");
+      } finally {
+        $("#pushJson").disabled = false;
+      }
+    }
+
+    async function uploadAsset() {
+      try {
+        if (!selectedAssetFile) throw new Error("請先選擇圖片檔案。");
+        const path = $("#assetPath").value.trim();
+        if (!path) throw new Error("請填入網站內路徑。");
+        $("#uploadAsset").disabled = true;
+        setStatus("#assetStatus", "正在上傳圖片到 GitHub...", "warn");
+        const buffer = await selectedAssetFile.arrayBuffer();
+        const result = await putGithubFile(path, arrayBufferToBase64(buffer), `Upload asset ${path}`);
+        setStatus("#assetStatus", `圖片已上傳：${path}\\nCommit: ${result.commit?.sha || "完成"}\\n你可以把這個路徑貼到作品或圖片欄位。`, "ok");
+      } catch (error) {
+        setStatus("#assetStatus", error.message, "error");
+      } finally {
+        $("#uploadAsset").disabled = false;
+      }
+    }
+
+    $$(".tab").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        $$(".tab").forEach((item) => item.setAttribute("aria-selected", "false"));
+        $$(".panel").forEach((panel) => panel.classList.remove("is-active"));
+        tab.setAttribute("aria-selected", "true");
+        $(`#panel-${tab.dataset.panel}`).classList.add("is-active");
+      });
     });
 
-    $("#token").addEventListener("change", loadContent);
-    $("#saveButton").addEventListener("click", saveContent);
-    loadContent().catch((error) => status(error.message, true));
+    $("#addWork").addEventListener("click", () => {
+      collectForm();
+      siteData.works.push({ year: "", title: "", note: "", link: "", page: "" });
+      renderWorks();
+      syncRaw();
+    });
+
+    $("#addGallery").addEventListener("click", () => {
+      collectForm();
+      siteData.gallery.push({ src: "", caption: "", span: "", alt: "" });
+      renderGallery();
+      syncRaw();
+    });
+
+    $("#applyForm").addEventListener("click", () => {
+      collectForm();
+      setStatus("#loadStatus", "表單內容已套用到 JSON。", "ok");
+    });
+
+    $("#applyJson").addEventListener("click", () => {
+      try {
+        siteData = ensureShape(JSON.parse($("#rawJson").value));
+        fillForm();
+        setStatus("#loadStatus", "JSON 已套用回表單。", "ok");
+      } catch (error) {
+        setStatus("#loadStatus", `JSON 格式錯誤：${error.message}`, "error");
+      }
+    });
+
+    $("#formatJson").addEventListener("click", () => {
+      try {
+        siteData = ensureShape(JSON.parse($("#rawJson").value));
+        syncRaw();
+      } catch (error) {
+        alert(`JSON 格式錯誤：${error.message}`);
+      }
+    });
+
+    $("#downloadJson").addEventListener("click", downloadJson);
+    $("#downloadJsonTop").addEventListener("click", downloadJson);
+    $("#pushJson").addEventListener("click", pushJson);
+    $("#uploadAsset").addEventListener("click", uploadAsset);
+
+    $("#saveToken").addEventListener("click", () => {
+      const token = $("#githubToken").value.trim();
+      if (!token) return;
+      localStorage.setItem("pudgalaGithubToken", token);
+      setStatus("#publishStatus", "Token 已儲存在這個瀏覽器。若是共用電腦，用完請清除。", "ok");
+    });
+
+    $("#clearToken").addEventListener("click", () => {
+      localStorage.removeItem("pudgalaGithubToken");
+      $("#githubToken").value = "";
+      setStatus("#publishStatus", "Token 已從這個瀏覽器清除。", "ok");
+    });
+
+    $("#jsonFile").addEventListener("change", async (event) => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      try {
+        siteData = ensureShape(JSON.parse(await file.text()));
+        fillForm();
+        setStatus("#loadStatus", `已載入 ${file.name}。`, "ok");
+      } catch (error) {
+        setStatus("#loadStatus", `讀取失敗：${error.message}`, "error");
+      }
+    });
+
+    $("#assetFile").addEventListener("change", (event) => {
+      selectedAssetFile = event.target.files?.[0] || null;
+      const preview = $("#assetPreview");
+      if (!selectedAssetFile) {
+        preview.innerHTML = "<span>尚未選擇圖片</span>";
+        return;
+      }
+      if (!$("#assetPath").value.trim()) {
+        const safeName = selectedAssetFile.name.replace(/\\s+/g, "-").replace(/[^a-zA-Z0-9._-]/g, "");
+        $("#assetPath").value = `artist_cv_assets/uploads/${Date.now()}-${safeName || "image.jpg"}`;
+      }
+      const url = URL.createObjectURL(selectedAssetFile);
+      preview.innerHTML = `<img src="${url}" alt="">`;
+    });
+
+    ["siteTitle", "siteBrand", "siteSubtitle", "heroKicker", "heroTitle", "heroDescription", "heroImage", "profileParagraphs", "profileChips"].forEach((id) => {
+      $(`#${id}`).addEventListener("input", () => {
+        collectForm();
+      });
+    });
+
+    const savedToken = localStorage.getItem("pudgalaGithubToken");
+    if (savedToken) $("#githubToken").value = savedToken;
+    loadDefaultJson();
   </script>
 </body>
 </html>
