@@ -24,19 +24,29 @@
     h1 { margin:0; max-width:1000px; font-size:clamp(28px,4vw,48px); line-height:.95; font-weight:680; }
     .title-en { display:block; margin-top:10px; color:rgba(244,241,234,.68); font-size:clamp(13px,1.25vw,18px); line-height:1.35; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
     h2 { margin:0 0 24px; font-size:clamp(21px,2.4vw,30px); line-height:1; font-weight:620; }
-    .intro,.media,.gallery { width:min(var(--max),100%); margin:0 auto; padding:clamp(44px,7vw,88px) clamp(18px,4vw,44px); border-bottom:1px solid var(--line); }
+    .intro,.credits,.media,.gallery { width:min(var(--max),100%); margin:0 auto; padding:clamp(44px,7vw,88px) clamp(18px,4vw,44px); border-bottom:1px solid var(--line); }
     .intro { display:grid; grid-template-columns:.82fr 1.18fr; gap:clamp(28px,6vw,86px); }
     .meta { display:grid; gap:1px; align-self:start; border:1px solid var(--line); }
     .meta div { display:grid; grid-template-columns:96px 1fr; gap:14px; padding:13px; background:rgba(255,255,255,.035); border-bottom:1px solid var(--line); font-size:14px; }
     .meta div:last-child { border-bottom:0; }
     .meta b,.copy p { color:var(--muted); }
     .copy p { margin:0 0 18px; font-size:clamp(15px,1.35vw,17px); }
+    .credits { display:grid; grid-template-columns:.82fr 1.18fr; gap:clamp(28px,6vw,86px); }
+    .credit-grid { display:grid; gap:18px; }
+    .credit-panel { border:1px solid var(--line); background:rgba(255,255,255,.035); padding:clamp(18px,2.6vw,30px); }
+    .credit-year { margin:0 0 6px; color:var(--muted); font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .credit-panel h3 { margin:0 0 22px; font-size:clamp(18px,1.9vw,24px); line-height:1.25; font-weight:620; }
+    .credit-panel dl { display:grid; gap:12px; margin:0; }
+    .credit-panel div { display:grid; grid-template-columns:128px 1fr; gap:18px; }
+    .credit-panel dt { color:rgba(244,241,234,.6); font-size:13px; font-weight:800; }
+    .credit-panel dd { margin:0; color:rgba(244,241,234,.86); font-size:14px; line-height:1.65; }
     .button-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
     .button { display:inline-flex; border:1px solid currentColor; border-radius:999px; padding:8px 12px; color:var(--fg); font-size:12px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
     .gallery { display:grid; grid-template-columns:repeat(12,1fr); grid-auto-rows:92px; gap:10px; }
     figure { margin:0; overflow:hidden; background:#111; }
     .wide { grid-column:span 8; grid-row:span 5; } .tall { grid-column:span 4; grid-row:span 5; } .half { grid-column:span 6; grid-row:span 4; }
-    @media (max-width:900px){ .intro{grid-template-columns:1fr}.wide,.tall,.half{grid-column:span 12;grid-row:span 4} }
+    @media (max-width:900px){ .intro,.credits{grid-template-columns:1fr}.wide,.tall,.half{grid-column:span 12;grid-row:span 4} }
+    @media (max-width:560px){ .credit-panel div{grid-template-columns:1fr;gap:2px} }
   </style>
 </head>
 <body>
@@ -49,10 +59,43 @@
     </div>
     <div class="copy">
       <h2>作品介紹</h2>
-      <p>人米犬頁製作 Pudgala Dance Company 成立於 2020 年，以舞蹈為核心，融合聲響、即興與跨域藝術形式，持續探索身體語言於不同場域中的可能性。創作多從自然環境、歷史空間與文化記憶出發，透過身體、物件與聲響之間的交織，發展具有辨識度的當代身體美學。</p>
-      <p>團隊關注傳統文化與當代身體實踐之間的轉譯關係，並從儀式結構、民間信仰、勞動行為與身體記憶中延伸創作，探索物質與非物質之間流動的感知狀態。</p>
-      <p>《舞·本草｜藥師儀式肢體劇場》以漢方草藥文化與製藥古法為創作靈感，透過舞蹈與肢體行動，轉化藥材炮製、研磨、曝曬與焚燒等過程中的身體節奏與時間感。作品從「藥師」作為一種介於勞動、儀式與照護之間的身體角色出發，發展出帶有草本氣息與儀式感的動作語彙。</p>
-      <p>此次重演版本將於大稻埕街道空間演出，延續作品原有的草本意象與身體結構，讓舞者穿梭於街道紋理與人群流動之中。作品回應大稻埕作為傳統漢藥、南北貨與民間文化聚集地的歷史脈絡，透過身體與場域之間的流動關係，在日常街景中展開一場帶有草本氣息與時間感的戶外肢體演出。</p>
+      <p>《舞·本草》以大稻埕漢方草藥文化與製藥古法為創作靈感，取材自迪化街在地中藥行的藥材、器具與製藥記憶，結合舞蹈、聲響、焚香、墨與肢體行動，發展一場遊走於人本與草本之間的藥師儀式。</p>
+      <p>黃耆、枸杞、靈芝與木耳幻化成精，藥船、藥杵與藥刀成為身體與時間的媒介。作品從藥材炮製、研磨、曝曬與焚燒的過程提取身體節奏，將反覆累積的勞動行為轉化為動作語彙；以草藥為筆留下墨印，在吟唱、舞踊、製藥與聲響的交織中，召回流傳於街區、器物與身體之間的記憶。</p>
+      <p>作品中的「藥師」游移於勞動、儀式與照護之間，身體承接草藥的氣味、質地與時間，也讓古老的製藥智慧在當代身體中重新生成。物件、聲響與舞蹈彼此牽引，形成一場穿越人本與草本之間的感官共鳴。</p>
+      <p>2023 年，《舞·本草》於大稻埕黑美人大酒家遺址的老屋天台首次演出，以環境劇場回應迪化街的歷史紋理。2026 年，作品再次回到大稻埕，從老屋走入街道，讓舞者穿梭於街道紋理與人群流動之中，重新與傳統漢藥、南北貨及民間文化交會。</p>
+      <p>迪化街是一條活的老街。《舞·本草》循著藥香與時間的痕跡，在一次次回到場域的過程中，讓身體重新進入這座街區仍持續發生的記憶。</p>
+    </div>
+  </section>
+  <section class="credits">
+    <div>
+      <p class="label">Credits</p>
+      <h2>演出團隊</h2>
+    </div>
+    <div class="credit-grid">
+      <article class="credit-panel">
+        <p class="credit-year">2023</p>
+        <h3>《舞·本草》首演</h3>
+        <dl>
+          <div><dt>主辦</dt><dd>發現故事</dd></div>
+          <div><dt>主題發想</dt><dd>謝欣翰</dd></div>
+          <div><dt>主要編創</dt><dd>王育羚</dd></div>
+          <div><dt>共同編創暨演出</dt><dd>柯泓宇、游品萱、吳兆容、林宜靜、梁雁怡、王育羚</dd></div>
+          <div><dt>前期協力發展</dt><dd>柯泓宇、游品萱、賴玟芳</dd></div>
+          <div><dt>音樂設計</dt><dd>劉子齊</dd></div>
+          <div><dt>劇照</dt><dd>楊林</dd></div>
+        </dl>
+      </article>
+      <article class="credit-panel">
+        <p class="credit-year">2026</p>
+        <h3>《舞·本草》重演</h3>
+        <dl>
+          <div><dt>主辦</dt><dd>大稻埕本草俱樂部、台北迪化商圈發展促進會、發現故事</dd></div>
+          <div><dt>導演統籌暨編舞</dt><dd>王育羚</dd></div>
+          <div><dt>共創舞者</dt><dd>鄭希玲、林宜靜、游品萱</dd></div>
+          <div><dt>特別協力</dt><dd>地衣荒物—謝欣翰</dd></div>
+          <div><dt>音樂設計</dt><dd>劉子齊</dd></div>
+        </dl>
+      </article>
     </div>
   </section>
   <section class="gallery">
